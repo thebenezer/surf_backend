@@ -19,23 +19,22 @@
 
 <body>
    <?php include("header.php")?>
-
     <!-- ****************** ALL CONTENT HERE ******************* -->
 
-
-
     <main>
-        
+        <div class="page-heading">
+            <h1>Profile Page</h1>
+            <div class="clock-airplane"><img src="./assets/images/airplane.svg" alt=""></div>
+        </div>
         <section class="container">
-            <article class="about">
-                <div>
-                    <h1>About Surf</h1><br>
-                    <p>Surf is an interactive guide to the world’s best travel destinations.</p>
-                    <br><p>We give you the tools to plan your next trip: in-depth information on destinations; inspiring ideas on what to see and do.</p>
-                    <br><p>Explore the world with our intuitive and easy to use 3D visualization by just pointing and clicking where you want to visit on the globe.</p>
-                    <br><p>If you would like to contribute to the work we do at Surf, do look at our <a href="join.html">Join us</a> page</p>
-                </div>
-                <img src="./assets/images/3dearth.png">
+            <article class="article-content">
+                <br><h3>Hi <?php echo $_SESSION['uid'];?></h3><br>
+                <p>This is your profile page. It contains all information regarding your travel interests.</p><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet beatae quidem, sed ut commodi et ullam minus accusamus quaerat dolorum voluptates facere delectus sunt odio laudantium rem. Error, repudiandae excepturi?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet beatae quidem, sed ut commodi et ullam minus accusamus quaerat dolorum voluptates facere delectus sunt odio laudantium rem. Error, repudiandae excepturi?</p>
+                <br><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet beatae quidem, sed ut commodi et ullam minus accusamus quaerat dolorum voluptates facere delectus sunt odio laudantium rem. Error, repudiandae excepturi?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet beatae quidem, sed ut commodi et ullam minus accusamus quaerat dolorum voluptates facere delectus sunt odio laudantium rem. Error, repudiandae excepturi?</p>
+                <br>
             </article>
         </section>
 

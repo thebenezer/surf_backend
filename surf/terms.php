@@ -19,7 +19,7 @@
 </head>
 
 <body>
-   <?php include("header.html")?>
+   <?php include("header.php")?>
 
 
     <!-- ****************** ALL CONTENT HERE ******************* -->
@@ -48,12 +48,12 @@
                 <br><h3>License</h3><br>
                 <p>Unless otherwise stated, Surf owns the intellectual property rights for
                 all material on Surf. All intellectual property rights are reserved. You may view
-                pages from <a href="index.html">http://surf.com</a> for your own personal use subject to restrictions set in these terms and conditions.</p>
+                pages from <a href="index.php">http://surf.com</a> for your own personal use subject to restrictions set in these terms and conditions.</p>
                 <p>You must not:</p>
                 <ul>
-                    <li>Republish material from <a href="index.html">http://surf.com</a></li>
-                    <li>Sell, rent or sub-license material from <a href="index.html">http://surf.com</a></li>
-                    <li>Reproduce, duplicate or copy material from <a href="index.html">http://surf.com</a></li>
+                    <li>Republish material from <a href="index.php">http://surf.com</a></li>
+                    <li>Sell, rent or sub-license material from <a href="index.php">http://surf.com</a></li>
+                    <li>Reproduce, duplicate or copy material from <a href="index.php">http://surf.com</a></li>
                 </ul>
                 <p>Redistribute content from Surf (unless content is specifically made for redistribution).</p>
                 <br>
