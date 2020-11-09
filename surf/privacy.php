@@ -18,97 +18,7 @@
 </head>
 
 <body>
-    <div class="loading-screen">
-        <h1 class="load-logo">SURF</h1>
-        <p class="tagline">Destinations made simple</p>
-        <img  class="boat" src="./assets/images/sailboat.svg" alt="">
-        <p class="loading">Loading...</p>
-    </div>
-    <header>
-        <div class="scroll">
-
-        </div>
-        <nav>
-            <div class="logo">
-                <a href="index.html" ><img src="./assets/images/surf.svg" alt="" /></a>
-            </div>
-                <ul class="navlinks">
-                <li><a href="#">Explore</a></li>
-                <li><a href="#">Feed</a></li>
-                <li class="mobile-signup"><a onclick="openSignupForm()">Sign-up</a></li>
-                <li><a href="#" onclick="openLoginForm()">Login</a></li>
-                <!-- <li class="cta"><a href="#">Signup</a></li> -->
-            </ul>
-            <a class="cta" onclick="openSignupForm()">Signup</a>
-            <div class="hamburger">
-                <span class="line1"></span>
-                <span class="line2"></span>
-                <span class="line3"></span>
-            </div>
-         </nav>
-    </header>
-
-    <!-- ****************** LOGIN FORM ******************* -->
-    
-    <div class="loginwindow">
-        <form action="#" class="ls-form">
-            <div class="close-form" onclick="closeForm()">
-                <span class="close-l1"></span>
-                <span class="close-l2"></span>
-            </div>
-            <h1>Login</h1>
-           
-    
-            <label class="ls-label">
-                <input type="email" required />
-                <div class="ls-label-text">E-mail</div>
-            </label>
-            <label class="ls-label">
-                <input type="password" required />
-                <div class="ls-label-text">Password</div>
-            </label>
-    
-            <button type="submit" class="btn">Login</button>
-            <p>New to SURF?</p>
-            <div type="button" class="secondbtn" onclick="openSignupForm()">Sign-up</div>
-        </form>
-        </div>
-    </div>
-
-    <!-- ****************** SIGNUP FORM ******************* -->
-
-    <div class="signupwindow">
-        <form action="#" class="ls-form">
-            <div class="close-form" onclick="closeForm()">
-                <span class="close-l1"></span>
-                <span class="close-l2"></span>
-            </div>
-            <h1>Signup</h1>
-           
-    
-            <label class="ls-label">
-                <input type="text" required />
-                <div class="ls-label-text">Username</div>
-            </label>
-            <label class="ls-label">
-                <input type="email" required />
-                <div class="ls-label-text">E-mail</div>
-            </label>
-            <label class="ls-label">
-                <input type="password" required />
-                <div class="ls-label-text">Password</div>
-            </label>
-            <label class="ls-label">
-                <input type="password" required />
-                <div class="ls-label-text">Confirm Password</div>
-            </label>
-
-            <button type="button" class="btn" >Sign-up</button>    
-            <p>Have an account already?</p>
-            <div type="submit" class="secondbtn" onclick="openLoginForm()">Login</div>
-        </form>
-        </div>
-    </div>
+   <?php include("header.html")?>
 
     <!-- ****************** ALL CONTENT HERE ******************* -->
 
@@ -187,63 +97,17 @@
     </main>
    
 
-    <footer>
-        <div class="newsletter-section">
-            <div class="handpicked"></div>
-            <div class="newsletter">
-                <h6>Join The Club</h6>
-                <p>Sign up to our newsletter to receive product updates, exclusive offers and lucky draws.</p>
-                <form action="POST">
-                    <input type="text" placeholder="Name" id="name" required>    
-                    <input type="email" placeholder="Email" id="email" required><br>
-                    <button type="submit" name="newsletter-sumbit">Count Me In</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="innerfooter">
-            <div class="moto">
-                <a href="index.html" class="logo"><img src="./assets/images/surf.svg" alt=""></a>
-                <p>Destinations made simple.</p>
-                <ul class="social">
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-            <div class="footerlinks">
-                <ul>
-                    <h6>SITE</h6>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="featured.html">Featured</a></li>
-                </ul>
-                
-                <ul>
-                    <h6>INFO</h6>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
-                    <li><a href="bugreport.html">Bug Reports</a></li>
-                    <li><a href="join.html">Join Us</a></li>
-                </ul>
-            </div>
-    
-        </div>
-
-        <div class="copy"><br>
-            <p>&#169; 2020 Surf, Inc. All rights reserved.</p>
-        </div>
-    </footer>
+    <?php include("footer.html")?>
 
     <!-- **************** SCRIPTS ***************** -->
-    <script src="./js/menu.js"></script>
+    
     <!-- <script src="/js/3dmodel.js" type="module"></script> -->
     <script>
         const body = document.querySelector('body');
         const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.classList.toggle('complete');
-        setTimeout(function(){ body.classList.add('complete'); }, 2000);
+        // loadingScreen.classList.toggle('complete');
+        // setTimeout(function(){ body.classList.add('complete'); }, 2000);
+        body.classList.add('complete');
         setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);
     </script>
 </body>

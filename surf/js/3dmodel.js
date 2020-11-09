@@ -33,7 +33,8 @@ function loadingcomplete(){
     const body = document.querySelector('body');
     const loadingScreen = document.querySelector('.loading-screen');
     // loadingScreen.classList.toggle('complete');
-    setTimeout(function(){ body.classList.add('complete'); }, 2000);
+    // setTimeout(function(){ body.classList.add('complete'); }, 2000);
+    body.classList.add('complete');
     setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);    
 }
 function onDocumentMouseMove( event ) {
