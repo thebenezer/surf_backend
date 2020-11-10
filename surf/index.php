@@ -25,7 +25,7 @@
 
     <main>
         <section class="earth">
-            <div id="pop-info">HI </div>
+            <a id="pop-info">Place </a>
             <canvas id="c">
 
             </canvas>

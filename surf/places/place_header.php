@@ -13,7 +13,7 @@
     </div>
     <nav>
         <div class="logo">
-            <a href="./index.php" ><img src=".././assets/images/surf.svg" alt="logo" /></a>
+            <a href="../index.php" ><img src=".././assets/images/surf.svg" alt="logo" /></a>
         </div>
             <ul class="navlinks">
                 <li><a href="#">Explore</a></li>
@@ -22,9 +22,9 @@
         
         <?php if (isset($_SESSION['uid'])) { ?>
                 <li class="mobile-signup"><a href="profile.php">Profile</a></li>
-                <li><a href="./includes/logout.inc.php">Logout</a></li>
+                <li><a href="../includes/logout.inc.php">Logout</a></li>
             </ul>
-            <a class="cta" href="profile.php">Profile</a>
+            <a class="cta" href="../profile.php">Profile</a>
 
         <?php } else { ?>
                 <li class="mobile-signup"><a onclick="openSignupForm()">Sign-up</a></li>
@@ -48,7 +48,7 @@
 <!-- ****************** LOGIN FORM ******************* -->
 
 <div class="loginwindow">
-    <form method="POST" action="./includes/login.inc.php" class="ls-form">
+    <form method="POST" action="../includes/login.inc.php" class="ls-form">
         <div class="close-form" onclick="closeForm()">
             <span class="close-l1"></span>
             <span class="close-l2"></span>
@@ -75,7 +75,7 @@
 <!-- ****************** SIGNUP FORM ******************* -->
 
 <div class="signupwindow">
-    <form method="POST" action="includes/signup.inc.php" class="ls-form">
+    <form method="POST" action="../includes/signup.inc.php" class="ls-form">
         <div class="close-form" onclick="closeForm()">
             <span class="close-l1"></span>
             <span class="close-l2"></span>
