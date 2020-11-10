@@ -169,6 +169,8 @@ main {
     font-size: 1em;
 }
 #pop-info{
+    color: white;
+    padding-top: 90px;
     text-align: center;
     position: absolute;
     cursor: pointer;
