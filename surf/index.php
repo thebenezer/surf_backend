@@ -46,8 +46,8 @@
     <?php include("footer.html")?>
 
     <!-- **************** SCRIPTS ***************** -->
-    
-    <!-- <script src="./js/three/three.min.js" type="module"></script> -->
+   
+    <script type="text/javascript" src="./js/getplaces.php"></script>
     <script src="./js/click.js" type="module"></script>
     <!-- <script>
         const body = document.querySelector('body');

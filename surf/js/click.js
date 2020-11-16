@@ -122,25 +122,26 @@ function main(){
         }
         addEarth();
        
-        let Places={
-            "Australia": [-25.27,133.77],
-            "India": [20.6,79],
-            "UK": [55.57,-3.43],
-            "Spain": [40.46,-3.75],
-            "Italy": [41.87, 12.56],
-            "Japan": [36.20, 138.25],
-            "USA": [37.09, -95.71],
-            "Mexico":[23.6345, -102.55],
-            "France":[46.22, 2.21],
-            "Turkey":[38.96, 35.24],
-            "Thailand":[15.87, 101],
-            "China":[35.86, 104.19],
-            "Germany":[51.16, 10.45],
-            "South Africa":[-30.56, 22.93],
-            "Brazil":[-14.23, -51.92],
-            "New Zeland": [-40.90, 174.88],
-            "Indonesia": [-0.79,113.92]};
-            
+        // if(Places.length()===0){
+        // Places={
+        //     "India": [20.6,79],
+        //     "UK": [55.57,-3.43],
+        //     "Spain": [40.46,-3.75],
+        //     "Italy": [41.87, 12.56],
+        //     "Japan": [36.20, 138.25],
+        //     "USA": [37.09, -95.71],
+        //     "Mexico":[23.6345, -102.55],
+        //     "France":[46.22, 2.21],
+        //     "Turkey":[38.96, 35.24],
+        //     "Thailand":[15.87, 101],
+        //     "China":[35.86, 104.19],
+        //     "Germany":[51.16, 10.45],
+        //     "South Africa":[-30.56, 22.93],
+        //     "Brazil":[-14.23, -51.92],
+        //     "New Zeland": [-40.90, 174.88],
+        //     "Indonesia": [-0.79,113.92]};
+        // }
+        
         var placeGeometry = new THREE.CircleBufferGeometry( 2.5, 6 );
         
         for (const key in Places) {
@@ -198,6 +199,8 @@ function main(){
         pop_info.setAttribute('href',addr);
         pop_info.innerText = obj.name;
         pop_info.style.display = 'block';
+        // console.log(Places[obj.name][2]);
+        pop_info.style.backgroundImage = "url(./assets/placeimages/"+Places[obj.name][2]+")";
         // pop_info.innerHTML=aTag;
     }
     function ray() {
