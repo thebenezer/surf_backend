@@ -195,7 +195,8 @@ function main(){
        
         // move the elem to that position
         pop_info.style.transform = `translate(-50%, -50%) translate(${x}px,${y}px)`;
-        var addr = "./places/"+obj.name.toLowerCase()+".php";
+        // var addr = "./places/"+obj.name.toLowerCase()+".php";
+        var addr = "./place.php?country="+Places[obj.name][3];
         pop_info.setAttribute('href',addr);
         pop_info.innerText = obj.name;
         pop_info.style.display = 'block';

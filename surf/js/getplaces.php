@@ -3,7 +3,7 @@ let Places;
 Places ={
     <?php
     include ('../includes/dbh.inc.php');
-    $sql = "SELECT * from destinations ;";
+    $sql = "SELECT pid , country , lat , lon , small_pic from destinations ;";
     $stmt= mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         header("Location: ../index.php?sql_error1");
@@ -22,7 +22,7 @@ Places ={
         $lat =$row['lat'];
         $lon=$row['lon'];
         $pic=$row['small_pic'];
-        echo '"'.$country.'"'.':['.$lat.','.$lon.',"'.$pic.'"],';
+        echo '"'.$country.'"'.':['.$lat.','.$lon.',"'.$pic.'",'.$pid.'],';
         // echo $pid.','.$country.','.$lat.','.$lon;
         }}
         mysqli_stmt_close($stmt);
