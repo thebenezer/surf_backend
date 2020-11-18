@@ -52,7 +52,14 @@
                             $country = $row['country'];
                             $lat =$row['lat'];
                             $lon=$row['lon'];
-                            $desc=$row['diecription'];
+                            $desc=$row['description'];
+                            $pictures=$row['pictures']
+                            ?>
+                            
+                            
+                            
+                            
+                            <?php
                             // echo '"'.$country.'"'.':['.$lat.','.$lon.',"'.$pic.'",'.$pid.'],';
                         }
                     }
