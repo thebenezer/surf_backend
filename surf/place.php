@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/places.css">
+    
 </head>
 
 <body>
@@ -53,14 +55,156 @@
                             $lat =$row['lat'];
                             $lon=$row['lon'];
                             $desc=$row['description'];
-                            $pictures=$row['pictures']
+                            $pictures=$row['pictures'];
+
+                            // splitting description and images
+
+                            $desc_arr = preg_split("/\^/", $desc);
+                            $pic_arr = preg_split("/\^/", $pictures); 
                             ?>
                             
-                            
-                            
-                            
+
                             <?php
-                            // echo '"'.$country.'"'.':['.$lat.','.$lon.',"'.$pic.'",'.$pid.'],';
+                                                     
+                            //print_r($desc_arr[0]);
+
+                            
+                            
+                            
+                            
+                            // echo '"'.$country.'"'.':['.$lat.','.$lon.',"'.$pic.'",'.$pid.'],'; ?>
+                            
+                            <section class="container">
+                                <article class="article-content">
+                                    <h1 style="font-size: 3em;text-align: center; margin-top: 10vh;"><?=$country?></h1>
+                                    <div class="container main-container" style="margin-top: 70px; margin-bottom: 90px;">                                  
+
+                                    <div class="blog-item blog-item4">
+                                        <div class="blog-item-image blog-item-image4"
+                                            style="background-image: url('<?=$pic_arr[0]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[0]?></h1>
+                                            <?=$desc_arr[1]?>
+                                            <div class="blog_post_image_grid">
+
+                                                <img src="<?=$pic_arr[9]?>"/>
+                                                <img src="<?=$pic_arr[10]?>"/>
+                                                <img src="<?=$pic_arr[11]?>"/>
+                                                <img src="<?=$pic_arr[12]?>"/>
+                                                <img src="<?=$pic_arr[13]?>"/>
+                                                <img src="<?=$pic_arr[14]?>"/>
+                                                <img src="<?=$pic_arr[15]?>"/>
+                                                <img src="<?=$pic_arr[16]?>"/>
+                                            </div>
+                                            <!--image grid -->
+
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+
+                                    <div class="blog-item blog-item1">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[1]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[2]?></h1>
+                                            <?=$desc_arr[3]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+
+                                    <div class="blog-item blog-item2">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[2]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                        <h1><?=$desc_arr[4]?></h1>
+                                        <?=$desc_arr[5]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+
+                                    <div class="blog-item blog-item3">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[3]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[6]?></h1>
+                                            <?=$desc_arr[7]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+
+                                    <div class="blog-item blog-item5">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[4]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[8]?></h1>
+                                            <?=$desc_arr[9]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+
+                                    <div class="blog-item blog-item6">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[5]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[10]?></h1>
+                                            <?=$desc_arr[11]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+                                    <div class="blog-item blog-item7">
+                                        <div class="blog-item-image blog-item-image7"
+                                            style="background-image: url('<?=$pic_arr[6]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[12]?></h1>
+                                            <?=$desc_arr[13]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+
+                                    <div class="blog-item blog-item8">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[7]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[14]?></h1>
+                                            <?=$desc_arr[15]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+                                    <div class="blog-item blog-item9">
+                                        <div class="blog-item-image"
+                                            style="background-image: url('<?=$pic_arr[8]?>');">
+                                        </div>
+                                        <div class="blog-item-content">
+                                            <h1><?=$desc_arr[16]?></h1>
+                                            <?=$desc_arr[17]?>
+                                        </div>
+                                        <!--blog item content -->
+                                    </div>
+                                    <!--blog item -->
+                                    
+                                    </div>
+                                </article>
+                            </section>
+
+                                
+                            
+                        <?php
                         }
                     }
                     mysqli_stmt_close($stmt);
