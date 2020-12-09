@@ -76,7 +76,7 @@
                             
                             <section class="container">
                                 <article class="article-content">
-                                    <h1 style="font-size: 3em;text-align: center; margin-top: 10vh;"><?=$country?></h1>
+                                    <h1 style="font-size: 3em;text-align: center; margin-top: 15vh;"><?=$country?></h1>
                                     <div class="container main-container" style="margin-top: 70px; margin-bottom: 90px;">                                  
 
                                     <div class="blog-item blog-item4">
