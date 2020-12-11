@@ -19,81 +19,100 @@
 
 <body>
    <?php 
-                   include("header.php")?>
+        include("header.php");
+
+        if (isset($_SESSION['uid'])) {
+            require './includes/dbh.inc.php';
+        
+            $uid = $_SESSION['uid'];            
+            $sql = "SELECT * from user_profile where uid= ?;";
+            $stmt= mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt,$sql)){
+                header("Location: ./index.php?sql_error1");
+                // echo "sql_error1";
+                exit();
+            }
+            else {
+                mysqli_stmt_bind_param($stmt, "s", $uid);
+                mysqli_stmt_execute($stmt);
+                $result = $stmt->get_result();
+                if($result->num_rows == 0){
+                    header("Location: ./index.php?error=nouser");
+                    exit();
+                }
+                else{
+                    while($row = $result->fetch_assoc()) {
+                        $jdate = $row['join_date'];
+                        $address =$row['address'];
+                        $phno=$row['phno'];
+                        $age=$row['age'];
+                        $profilepic=$row['profilepic'];
+                        $about=$row['about'];
+                        // echo $jdate;
+                        // echo $address;
+                        // echo $phno;
+                        // echo $age;
+                        // echo $profilepic;
+                        // splitting description and images
+
+                        // $desc_arr = preg_split("/\^/", $desc);
+                        // $pic_arr = preg_split("/\^/", $pictures); 
+                    }
+                }
+                mysqli_stmt_close($stmt);
+                mysqli_close($conn);
+            }
+        }
+        else{
+            header("Location: ./index.php?error=illegal_access");
+            exit();
+        }
+        ?>
     <!-- ****************** ALL CONTENT HERE ******************* -->
 
     <main>
         <section class="container">
             <article class="profile">
                 <div class="card">
-                    <div class="img-avatar"></div>
-                    <div class="card-text">
-                        <div class="portada"></div>
-                        <div class="title-total">   
-                            <div class="title"><?php echo $_SESSION['uid'];?></div>
-                            <h2><?php echo $_SESSION['uid'];?></h2>
-                            <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
-                            <div class="actions">
-                                <button><img src="./assets/images/edit.svg" alt=""></button>
-                                <button><img src="./assets/images/friends.svg" alt=""></button>
-                                <button><img src="./assets/images/paper-plane.svg" alt=""></button>
-                            </div>
+                    <!-- <img class="profile_pic" src="https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg" alt=""> -->
+                    <div class="profile_pic" style="background-image: url('https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg');"></div>
+                    <div class="globe_link"></div>
+                    <div class="card_info">
+                        <div class="uid"><?php echo htmlspecialchars($uid);?></div>
+                        <h2 class="name"><?php echo $uid;?></h2>
+                        <div class="desc"><?php echo $about;?>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam recusandae accusamus inventore eos doloremque culpa nostrum ipsa? Voluptatem ipsa et, quos harum eligendi, ullam incidunt ab quo sed esse blanditiis!</div>
+                        <div class="actions">
+                            <button><img src="./assets/images/edit.svg" alt=""></button>
+                            <!-- <button><img src="./assets/images/friends.svg" alt=""></button> -->
+                            <!-- <button><img src="./assets/images/paper-plane.svg" alt=""></button> -->
                         </div>
                     </div>
                 </div>
-                <div class="details">
-                    <h1>Hi <?php echo $_SESSION['uid'];?></h1><br>
-                    <p>This is your profile page. It contains all information regarding your travel interests.</p><br>
-                    <?php
-                    if (isset($_SESSION['uid'])) {
-                        require './includes/dbh.inc.php';
-                    
-                        $uid = $_SESSION['uid'];            
-                        $sql = "SELECT * from user_profile where uid= ?;";
-                        $stmt= mysqli_stmt_init($conn);
-                        if(!mysqli_stmt_prepare($stmt,$sql)){
-                            header("Location: ./index.php?sql_error1");
-                            // echo "sql_error1";
-                            exit();
-                        }
-                        else {
-                            mysqli_stmt_bind_param($stmt, "s", $uid);
-                            mysqli_stmt_execute($stmt);
-                            $result = $stmt->get_result();
-                            if($result->num_rows == 0){
-                                header("Location: ./index.php?error=nouser");
-                                exit();
-                            }
-                            else{
-                                while($row = $result->fetch_assoc()) {
-                                    $jdate = $row['join_date'];
-                                    $address =$row['address'];
-                                    $phno=$row['phno'];
-                                    $age=$row['age'];
-                                    $profilepic=$row['profilepic'];
-                                    echo $jdate;
-                                    echo $address;
-                                    echo $phno;
-                                    echo $age;
-                                    echo $profilepic;
-                                    // splitting description and images
-
-                                    // $desc_arr = preg_split("/\^/", $desc);
-                                    // $pic_arr = preg_split("/\^/", $pictures); 
-                                }
-                            }
-                            mysqli_stmt_close($stmt);
-                            mysqli_close($conn);
-                        }
-                    }
-                    else{
-                        header("Location: ./index.php?error=illegal_access");
-                        exit();
-                    }
-                    ?>
+                <div class="card">
+                    <!-- <img class="profile_pic" src="https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg" alt=""> -->
+                    <div class="profile_pic" style="background-image: url('https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg');"></div>
+                    <div class="globe_link"></div>
+                    <div class="card_info">
+                        <div class="uid"><?php echo htmlspecialchars($uid);?></div>
+                        <h2 class="name"><?php echo $uid;?></h2>
+                        <div class="desc"><?php echo $about;?>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam recusandae accusamus inventore eos doloremque culpa nostrum ipsa? Voluptatem ipsa et, quos harum eligendi, ullam incidunt ab quo sed esse blanditiis!</div>
+                        <div class="actions">
+                            <!-- <button><img src="./assets/images/edit.svg" alt=""></button> -->
+                            <button><img src="./assets/images/friends.svg" alt=""></button>
+                            <button><img src="./assets/images/paper-plane.svg" alt=""></button>
+                        </div>
+                    </div>
                 </div>
+                <!-- <div class="details">
+                    <h1>Hi <?php echo $uid;?></h1><br>
+                    <p>This is your profile page. It contains all information regarding your travel interests.</p><br>
+                    
+                </div> -->
                 <!-- <canvas id="c"></canvas> -->
             </article>
+            <input type="checkbox" class="flip_list">
         </section>
     </main>
    

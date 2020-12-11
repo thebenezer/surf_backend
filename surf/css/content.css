@@ -16,6 +16,7 @@
     z-index: 2;
     width: 80%;
     margin: 0 auto;
+    text-align: center;
 }
 .article-content{
     z-index: 1;
@@ -104,107 +105,94 @@
     width: 100%;
 }
 .profile{
-    margin: 80px 0 40px 0;
+    margin: 80px 0;
     display: flex;
     justify-content: space-between;
 }
-.profile div{
-    margin: auto;
-    font-size: 20px;
-}
-.profile #c{
+/* .profile #c{
     width: 100%;
     height: 100%;
-}
+} */
 .details{
+    flex: 1;
     padding: 1rem;
 }
-@media screen and (max-width:768px){
-    .about{
-        flex-direction: column-reverse;
-    }
-    .profile{
-        flex-direction: column;
-    }
-    
-    .profile #c{
-        width: 100%;
-        height: 80vh;
-    }
-    .about div,.profile div{
-        margin: auto;
-        font-size: 16px;
-    }
-    
-}
+
+
 
 
 /* CARD DESIGN */
 
 .card {
-background: #fff;
-border-radius: 4px;
-box-shadow: 0px 10px 80px rgba(34, 35, 58, 0.5);
-max-width: 400px;
-display: flex;
-flex-direction: row;
-border-radius: 25px;
-position: relative;
-}
-.card h2 {
-padding: 0 1rem;
-}
-.card .title {
-padding: 1rem;
-text-align: right;
-color: green;
-font-weight: bold;
-font-size: 12px;
-}
-.card .desc {
-padding: 0.5rem 1rem;
-font-size: 12px;
-}
-.card .actions {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-align-items: center;
-padding: 0.5rem 1rem;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 10px 40px rgba(34, 35, 58, 0.5);
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    border-radius: 25px;
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    margin: 40px;
 }
 
-.img-avatar {
-width: 80px;
-height: 80px;
-position: absolute;
-border-radius: 50%;
-border: 6px solid white;
-background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
-top: 15px;
-left: 85px;
+.profile_pic {
+    flex: 1;
+    /* width: 100%; */
+    /* height: 100%; */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* background-position: bottom center; */
+    background-size: cover;
+}
+    
+.globe_link {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    border-radius: 50%;
+    border: 6px solid white;
+    background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+    top: 15px;
+    right: 40%;
 }
 
-.card-text {
-display: grid;
-grid-template-columns: 1fr 2fr;
+.card_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    /* grid-template-columns: 1fr 2fr; */
 }
 
-.title-total {
-padding: 2.5em 1.5em 1.5em 1.5em;
+.uid {
+    padding: 1rem;
+    text-align: right;
+    color: green;
+    font-weight: bold;
+    font-size: 16px;
 }
-
-
+.name{
+    color: black;
+    padding: 0.5rem 1rem 0 1rem;
+    text-align: left;
+    /* margin: 0; */
+}
+.desc {
+    padding: 0 1rem;
+    font-size: 12px;
+    /* margin: 0; */
+}
+   
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 .card button img {
 width: 30px;
-}
-
-.portada {
-width: 100%;
-height: 100%;
-border-top-left-radius: 20px;
-border-bottom-left-radius: 20px;
-background-image: url("https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg");
-background-position: bottom center;
-background-size: cover;
+border: none;
 }
 
 .card button {
@@ -219,4 +207,64 @@ transition:.5s;
 .card button:hover{
 color: #4CAF50  ;
 transform: rotate(22deg)
+}
+
+
+/* FLIP VISITED VS BUCKETLIST */
+.flip_list {
+    -webkit-appearance: none;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background-image: url(../assets/images/day_a.png);
+    background-size: cover;
+    border-radius: 50px;
+    outline: none;
+    transition: background-image .90s;
+    box-shadow: 0px 2px 5px 1px gray;
+    margin-bottom: 20px;
+}
+  
+.flip_list:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    background-color: navy;
+    border-radius: 50px;
+    transition: all .9s;
+    background-color: #F7CA33;
+}
+  
+.flip_list:checked {
+    background-image: url(../assets/images/night_a.png);
+    transition: background-image .90s;  
+}
+  
+.flip_list:checked:before {
+    transform: translate(100%);
+    transition: all .9s;
+    background-color: #ECF0F3;
+}
+
+@media screen and (max-width:768px){
+    .about{
+        flex-direction: column-reverse;
+    }
+    .profile{
+        flex-direction: column;
+        margin: 0;
+        margin-top: 100px;
+    }
+    .card{
+        margin: 20px 0;
+    }
+
+    .about div{
+        margin: auto;
+        font-size: 16px;
+    }
+    
 }
