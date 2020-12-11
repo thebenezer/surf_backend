@@ -113,7 +113,12 @@
                 </div>
                 <canvas id="c"></canvas> -->
             </article>
-            <input type="checkbox" class="flip_list">
+            <div class="flipbox">
+                <h3 class="fliptext">Memories</h3>
+                <input type="checkbox" class="flip_list" id="flip">
+                <h3 class="fliptext">Wishlist</h3>
+                <h2 class="mobile_fliptext"></h2>
+            </div>
         </section>
     </main>
    
@@ -124,12 +129,4 @@
     <script type="text/javascript" src="./js/getplaces.php"></script>
     <script src="./js/profile_earth.js" type="module"></script> 
     </body>
-    <!-- <script>
-        const body = document.querySelector('body');
-        const loadingScreen = document.querySelector('.loading-screen');
-        // loadingScreen.classList.toggle('complete');
-        // setTimeout(function(){ body.classList.add('complete'); }, 2000);
-        body.classList.add('complete');
-        setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);
-    </script> -->
 </html>

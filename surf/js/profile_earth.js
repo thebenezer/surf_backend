@@ -113,7 +113,6 @@ function main(){
                 
             }
         }
-        
         loadingcomplete();
         animate();
     }
@@ -139,8 +138,8 @@ function main(){
             camera.aspect = canvas.clientWidth / canvas.clientHeight;
             camera.updateProjectionMatrix();
         }
+        scene.rotation.y+=Math.PI/18;
         renderer.render(scene, camera);
-      
     }
 
     function animate() {

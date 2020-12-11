@@ -233,6 +233,14 @@ transform: rotate(22deg)
 }
 
 /* FLIP VISITED VS BUCKETLIST */
+.flipbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mobile_fliplist{
+    display: none;
+}
 .flip_list {
     -webkit-appearance: none;
     position: relative;
@@ -263,7 +271,6 @@ transform: rotate(22deg)
     background-image: url(../assets/images/night_a.png);
     transition: background-image .90s;  
 }
-  
 .flip_list:checked:before {
     transform: translate(100%);
     transition: all .9s;
@@ -282,10 +289,25 @@ transform: rotate(22deg)
     .card,.badge-card{
         margin: 20px 0;
     }
+    .flipbox{
+        flex-direction: column;
+    }
     .flip_list{
-        margin: 20px 0;
+        margin: 20px 0 10px 0;
     }
 
+    .fliptext{
+        display: none;
+    }
+    .mobile_fliptext{
+        display: block;
+    }
+    .mobile_fliptext::after {
+        content: "Memories";
+    } 
+    .flip_list:checked ~ .mobile_fliptext::after {
+        content: "Bucket List";
+    }  
     .about div{
         margin: auto;
         font-size: 16px;
