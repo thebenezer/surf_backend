@@ -42,6 +42,7 @@
                 }
                 else{
                     while($row = $result->fetch_assoc()) {
+                        $name = $row['name'];
                         $jdate = $row['join_date'];
                         $address =$row['address'];
                         $phno=$row['phno'];
@@ -79,9 +80,8 @@
                     <div class="globe_link"></div>
                     <div class="card_info">
                         <div class="uid"><?php echo htmlspecialchars($uid);?></div>
-                        <h2 class="name"><?php echo $uid;?></h2>
-                        <div class="desc"><?php echo $about;?>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam recusandae accusamus inventore eos doloremque culpa nostrum ipsa? Voluptatem ipsa et, quos harum eligendi, ullam incidunt ab quo sed esse blanditiis!</div>
+                        <h2 class="name"><?php echo $name;?></h2>
+                        <div class="desc"><?php echo $about;?></div>
                         <div class="actions">
                             <button><img src="./assets/images/edit.svg" alt=""></button>
                             <!-- <button><img src="./assets/images/friends.svg" alt=""></button> -->
@@ -89,18 +89,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <!-- <img class="profile_pic" src="https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg" alt=""> -->
-                    <div class="profile_pic" style="background-image: url('https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg');"></div>
-                    <div class="globe_link"></div>
+                <div class="badge-card">
+                    <div class="badge" >
+                        <img class="badge_pic" src="./assets/images/badge.jpg" alt="">
+                        <canvas class="badge_pic" id="c"></canvs>
+                    </div>
+                    <!-- <div class="globe_link"></div> -->
                     <div class="card_info">
-                        <div class="uid"><?php echo htmlspecialchars($uid);?></div>
-                        <h2 class="name"><?php echo $uid;?></h2>
-                        <div class="desc"><?php echo $about;?>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam recusandae accusamus inventore eos doloremque culpa nostrum ipsa? Voluptatem ipsa et, quos harum eligendi, ullam incidunt ab quo sed esse blanditiis!</div>
+                        <h2 class="name"></h2>
+                        <div class="desc">
+                            <p><b>Places Travelled :</b> 12</p>
+                            <p><b>Badges Earned&nbsp;&nbsp;:</b> 12</p>
+                        </div>
                         <div class="actions">
-                            <!-- <button><img src="./assets/images/edit.svg" alt=""></button> -->
-                            <button><img src="./assets/images/friends.svg" alt=""></button>
                             <button><img src="./assets/images/paper-plane.svg" alt=""></button>
                         </div>
                     </div>
@@ -109,8 +110,8 @@
                     <h1>Hi <?php echo $uid;?></h1><br>
                     <p>This is your profile page. It contains all information regarding your travel interests.</p><br>
                     
-                </div> -->
-                <!-- <canvas id="c"></canvas> -->
+                </div>
+                <canvas id="c"></canvas> -->
             </article>
             <input type="checkbox" class="flip_list">
         </section>
@@ -120,15 +121,15 @@
     <?php include("footer.html")?>
 
     <!-- **************** SCRIPTS ***************** -->
-    <!-- <script type="text/javascript" src="./js/getplaces.php"></script> -->
-    <!-- <script src="./js/click.js" type="module"></script>  -->
+    <script type="text/javascript" src="./js/getplaces.php"></script>
+    <script src="./js/profile_earth.js" type="module"></script> 
     </body>
-    <script>
+    <!-- <script>
         const body = document.querySelector('body');
         const loadingScreen = document.querySelector('.loading-screen');
         // loadingScreen.classList.toggle('complete');
         // setTimeout(function(){ body.classList.add('complete'); }, 2000);
         body.classList.add('complete');
         setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);
-    </script>
+    </script> -->
 </html>

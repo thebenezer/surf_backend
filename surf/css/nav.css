@@ -300,7 +300,7 @@ footer{
 /* ***********NEWSLETTER SECTION************** */
 .newsletter-section{
     background: rgba(156, 187, 175, 0.658) url(".././assets/images/blue.svg") no-repeat center ;
-    background: rgb(133, 233, 195);
+    background: #85e9c3;
     background-size: cover;
     /* box-shadow: 0px 10px 1px #b1e5ee; */
     display: flex;

@@ -105,7 +105,7 @@
     width: 100%;
 }
 .profile{
-    margin: 80px 0;
+    margin-top: 80px;
     display: flex;
     justify-content: space-between;
 }
@@ -123,7 +123,7 @@
 
 /* CARD DESIGN */
 
-.card {
+.card,.badge-card {
     background: #fff;
     border-radius: 4px;
     box-shadow: 0px 10px 40px rgba(34, 35, 58, 0.5);
@@ -178,7 +178,7 @@
     color: black;
     padding: 0.5rem 1rem 0 1rem;
     text-align: left;
-    /* margin: 0; */
+    margin-top: 10px;
 }
 .desc {
     padding: 0 1rem;
@@ -187,28 +187,50 @@
 }
    
 .actions {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* text-align: left; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
-.card button img {
-width: 30px;
-border: none;
+.actions button img {
+    margin: 0 20px;
+    width: 30px;
+    border: none;
 }
 
-.card button {
-border: none;
-background: none;
-font-size: 24px;
-color: #8bc34a;
-cursor: pointer;
-transition:.5s;
+.actions button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #8bc34a;
+    cursor: pointer;
+    transition:.5s;
 
 }
-.card button:hover{
+.actions button:hover{
 color: #4CAF50  ;
 transform: rotate(22deg)
 }
-
+/* BADGE CARD */
+.badge-card{
+    flex-direction: column;
+}
+.badge{
+    padding-top: 10px;
+    /* background-color: cadetblue; */
+    display: flex;
+    justify-content: space-evenly;
+}
+.badge_pic{
+    margin: auto;
+    width: 140px;
+    height: 180px;
+    border-radius: 25px;
+}
+.badge-card .desc{
+    border-radius: 25px;
+}
 
 /* FLIP VISITED VS BUCKETLIST */
 .flip_list {
@@ -222,7 +244,7 @@ transform: rotate(22deg)
     outline: none;
     transition: background-image .90s;
     box-shadow: 0px 2px 5px 1px gray;
-    margin-bottom: 20px;
+    margin: 40px;
 }
   
 .flip_list:before {
@@ -232,10 +254,9 @@ transform: rotate(22deg)
     left: 0;
     height: 100px;
     width: 100px;
-    background-color: navy;
     border-radius: 50px;
     transition: all .9s;
-    background-color: #F7CA33;
+    background-color: #85e9c3;
 }
   
 .flip_list:checked {
@@ -258,7 +279,10 @@ transform: rotate(22deg)
         margin: 0;
         margin-top: 100px;
     }
-    .card{
+    .card,.badge-card{
+        margin: 20px 0;
+    }
+    .flip_list{
         margin: 20px 0;
     }
 

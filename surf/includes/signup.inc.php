@@ -68,7 +68,7 @@ if (isset($_POST['signup-submit'])) {
           // echo $uid."   ".$email."   ".$password."   ".$hashedPwd;
           $_SESSION['uid'] =$uid;
           
-          $sql2="INSERT INTO user_profile (uid) values (?);";
+          $sql2="INSERT INTO user_profile (uid,name) values (?,?);";
           $stmt2 = mysqli_stmt_init($conn);
           if (!mysqli_stmt_prepare($stmt2,$sql2))
           {
@@ -79,7 +79,7 @@ if (isset($_POST['signup-submit'])) {
           }
           else
           {
-            mysqli_stmt_bind_param($stmt2, "s", $uid);
+            mysqli_stmt_bind_param($stmt2, "ss", $uid,$uid);
             mysqli_stmt_execute($stmt2);
             mysqli_stmt_close($stmt2);
             mysqli_close($conn);
