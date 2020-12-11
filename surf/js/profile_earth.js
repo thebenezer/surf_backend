@@ -5,9 +5,9 @@ import { OrbitControls } from './three/OrbitControls.js';
 
 
 const canvas=document.querySelector('#c');
+const pop_info=document.querySelector('#pop-info');
 
-let renderer,camera,scene,controls,raycaster;
-let mouse = new THREE.Vector2(), INTERSECTED;
+let renderer,camera,scene,controls;
 
 
 
@@ -20,13 +20,17 @@ function loadingcomplete(){
     setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);    
 }
 
+console.log(canvas.clientHeight,canvas.clientWidth);
+
+
+function orbitalcontrols() {
+    // Setup orbital controls
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed =1;
+}
+
 function main(){
-    // window
-    //     .fetch("./js/points.json")
-    //     .then(response => response.json())
-    //     .then(data => {
-    //     init(data.points);
-    //     });
     init()
 
     function init() {
@@ -39,6 +43,11 @@ function main(){
         canvas,
         antialias: true
         });
+        // container.appendChild( renderer.domElement );
+        orbitalcontrols();
+        // Add fog to the scene
+        scene.fog = new THREE.FogExp2( 0xe8eddf, 0.002 );
+        camera.position.z = 300;
     
         var light = new THREE.DirectionalLight( 0xffffff, 1 );
         light.position.set( 1, 1, 1 ).normalize();
@@ -113,38 +122,23 @@ function main(){
                 
             }
         }
+        
         loadingcomplete();
         animate();
     }
-    function resizeRendererToDisplaySize(renderer) {
-        const canvas = renderer.domElement;
-        const pixelRatio = window.devicePixelRatio;
-        const width  = canvas.clientWidth  * pixelRatio | 0;
-        const height = canvas.clientHeight * pixelRatio | 0;
-        const needResize = canvas.width !== width || canvas.height !== height;
-        if (needResize) {
-          renderer.setSize(width, height, false);
-        }
-        return needResize;
-    }
     
     function render() {
-        if (resizeRendererToDisplaySize(renderer)) {
-            if(document.documentElement.clientWidth>768)  
-                camera.position.z = 250;
-            else
-                camera.position.z = 300;
-            const canvas = renderer.domElement;
-            camera.aspect = canvas.clientWidth / canvas.clientHeight;
-            camera.updateProjectionMatrix();
-        }
-        scene.rotation.y+=Math.PI/18;
+        const canvas = renderer.domElement;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
         renderer.render(scene, camera);
+      
     }
 
     function animate() {
         render();
         requestAnimationFrame(animate);        
+          controls.update();// only required if controls.enableDamping = true, or if controls.autoRotate = true
     }
 
     
@@ -166,17 +160,3 @@ else{
     console.log("Your browser does not support webGL");
 }
 
-
-
-
-        // **********HELPERS********
-
-        // let plane = new THREE.Plane( new THREE.Vector3( 1,0,0 ), 0 );
-        // let helper = new THREE.PlaneHelper( plane, 200, 0xffff00 );
-        // scene.add( helper );
-        // plane = new THREE.Plane( new THREE.Vector3( 0,1,0 ), 0 );
-        // helper = new THREE.PlaneHelper( plane, 200, 0x00ff00 );
-        // scene.add( helper );
-        // plane = new THREE.Plane( new THREE.Vector3( 0,0,1 ), 0 );
-        // helper = new THREE.PlaneHelper( plane, 200, 0x00ff00 );
-        // scene.add( helper );
