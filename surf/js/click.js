@@ -64,7 +64,7 @@ function orbitalcontrols() {
     controls.autoRotateSpeed =1;
     // controls.screenSpacePanning = true;
     controls.minDistance = 200;
-    // controls.maxDistance = 500;
+    controls.maxDistance = 350;
     if(document.documentElement.clientWidth>768)  
         camera.position.z = 250;
     else

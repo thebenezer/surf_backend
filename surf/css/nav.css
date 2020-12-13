@@ -1,3 +1,48 @@
+/* ############ SCROLL TO TOP########### */
+
+
+.scroll-to-top{
+    background-color: rgba(253, 253, 253, 0.781);
+    width: 55px;
+    height: 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: fixed;
+    right: 3%;
+    bottom: 3%;
+    border: solid #242423 2px;
+    text-align: center;
+    font-size: 12px;
+    /* display: none; */
+    /* z-index: -1; */
+    opacity: 0;
+    transition: all 0.5s ease;
+    /*To disable text selection on tap or double click*/
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
+.scroll-to-top img{
+    margin: 2px;
+    width: auto;
+    animation: upup 1s infinite alternate;
+}
+.scroll-to-top.fade{
+    opacity: 1;
+    z-index: 2;
+    /* transition: all 0.5s ease; */
+}
+@keyframes upup{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(7px);
+    }
+}
 /* *************LOGIN SIGNUP FORM STYLING************** */
 
 .loginwindow,.signupwindow{
@@ -112,7 +157,6 @@
     opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
 .ls-form .secondbtn {
     background-color: #4c9daf;
     /* height: 40px; */
@@ -132,18 +176,26 @@ nav{
     width: 100%;
     z-index: 2;
     justify-content: space-around;
-    /* background-color: rgb(207, 207, 204); */
     padding: 10px 10%;
     font-size: 18px;
     font-weight: 900;
     color: black;
+    transition: all 1s ease;
+}
+nav.highlight{
+    /* padding: 5px 10%; */
+    /* padding-top: 5px; */
+    background-color: rgba(255, 255, 255, 0.898);
 }
 .logo{
     flex: 1;
-    /* background: cadetblue; */
 }
 .logo img{
     height: 60px;
+    transition: all 1s ease;
+}
+.logo img.small{
+    height: 40px;
 }
 .navlinks{
     flex: 1;
@@ -173,7 +225,6 @@ nav{
     display: none;
 }
 
-
 @media screen and (max-width:1024px){
     .navlinks li{
         margin: auto 0 auto 50px;  
@@ -184,6 +235,18 @@ nav{
 }
 
 @media screen and (max-width:768px){
+    .scroll-to-top{
+        width: 51px;
+        height: 40px;
+        cursor: pointer;
+        right: 3%;
+        bottom: 60px;
+        border: solid #242423 2px;
+        margin-bottom: 10px;
+        font-size: 10px;
+        transition: all 0.5s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
     
     .logo{
         z-index: 1;
@@ -211,7 +274,7 @@ nav{
         background-size: cover;
         clip-path: circle(50px at 120% 0%);
         -webkit-clip-path: circle(50px at 120% 0%);
-        transition: all 1s ease;
+        transition: all 0.5s ease;
     }
     .navlinks.open{
         clip-path: circle(1500px at 120% 0%);
@@ -228,16 +291,16 @@ nav{
         margin-bottom: 20vh;
     } */
     .navlinks li:nth-child(1){
-        transition: all 0.5s ease 0.2s;
+        transition: all 0.5s ease 0.1s;
     }
     .navlinks li:nth-child(2){
-        transition: all 0.5s ease 0.4s;
+        transition: all 0.5s ease 0.2s;
     }
     .navlinks li:nth-child(3){
-        transition: all 0.5s ease 0.6s;
+        transition: all 0.5s ease 0.3s;
     }
     .navlinks li:nth-child(4){
-        transition: all 0.5s ease 0.8s;
+        transition: all 0.5s ease 0.4s;
     }
    
     .cta{
@@ -300,7 +363,7 @@ footer{
 /* ***********NEWSLETTER SECTION************** */
 .newsletter-section{
     background: rgba(156, 187, 175, 0.658) url(".././assets/images/blue.svg") no-repeat center ;
-    background: #85e9c3;
+    background: rgb(133, 233, 195);
     background-size: cover;
     /* box-shadow: 0px 10px 1px #b1e5ee; */
     display: flex;
