@@ -8,16 +8,17 @@
     <p class="loading">Loading...</p>
 </div>
 <header>
-    <div class="scroll">
-
+    <div class="scroll-to-top">
+        <img src="./assets/images/up.svg" alt="up icon">
+        <span>Scroll</span>
     </div>
     <nav>
         <div class="logo">
             <a href="index.php" ><img src="./assets/images/surf.svg" alt="logo" /></a>
         </div>
             <ul class="navlinks">
-                <li><a href="#">Explore</a></li>
-                <li><a href="#">Feed</a></li>
+                <li><a href="explore.php">Explore</a></li>
+                <li><a href="feed.html">Feed</a></li>
             
         
         <?php if (isset($_SESSION['uid'])) { ?>
