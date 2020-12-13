@@ -24,7 +24,6 @@
     <!-- ****************** ALL CONTENT HERE ******************* -->
 
 
-
 	<main>
         <br><br>
         <h1 style="font-size: 3em;text-align: center; margin-top: 10vh;">Reviews</h1>
@@ -33,8 +32,8 @@
                 
                 <div class="test-body">
                     <div class="item">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
-                        <div class="name">Name1</div>
+                        <img src="https://lh3.googleusercontent.com/proxy/eyNll2m0BwsME4f7ErvVgoflStTUXI9F7_TCRKu1eNzb0Sm1X6Tdc_BUxpZcdYpjPaE5Do-vPM1nR1BiGBe-JoKY3Xell1b_ngD036xk-GMie40HkabUQSAzqCi4lsDK74jRTAMm4C-NdIky1O-wSGia6yfSXSnnrvhhJ6gdJQ">
+                        <div class="name" style="text-align: center;">Vamsi Kumar</div>
                         <small class="desig">Bangalore</small>
                         <div class="share">
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -43,11 +42,11 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star-o" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, vitae? Adipisci possimus ullam esse exercitationem dignissimos aspernatur quo maiores assumenda molestias. Neque reiciendis iusto natus. Quis quia est incidunt enim!</p>
+                        <p>Nice place to plan your next trip. Would've missed many attractions on our trip to Italy if not for your website.</p>
                     </div>
                     <div class="item">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
-                        <div class="name">Name2</div>
+                        <img src="https://www.biography.com/.image/t_share/MTUzMzQzOTkxMDAwMDgxNzA2/jason-statham-attends-the-press-conference-of-director-f-gary-grays-film-the-fate-of-the-furious-on-march-23-2017-in-beijing-china-photo-by-vcg_vcg-via-getty-images-square.jpg">
+                        <div class="name" style="text-align: center;">John Statham</div>
                         <small class="desig">London</small>
                         <div class="share">
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -56,11 +55,11 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, vitae? Adipisci possimus ullam esse exercitationem dignissimos aspernatur quo maiores assumenda molestias. Neque reiciendis iusto natus. Quis quia est incidunt enim!</p>
+                        <p>As a solo traveler, I rely on a trusted company that can get me safely from point A to B, especially when I’m unfamiliar with the area. After my third trip with Surf, I feel safe to assume that they check all of these boxes off for me!</p>
                     </div>
                     <div class="item">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
-                        <div class="name">Name3</div>
+                        <img src="https://imagens.canaltech.com.br/celebridades/98.400.jpg">
+                        <div class="name" style="text-align: center;">Hideo Kojima</div>
                         <small class="desig">Tokyo</small>
                         <div class="share">
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -69,14 +68,14 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, vitae? Adipisci possimus ullam esse exercitationem dignissimos aspernatur quo maiores assumenda molestias. Neque reiciendis iusto natus. Quis quia est incidunt enim!</p>
+                        <p>What an incredible experience we had! The trip was perfectly organized, the accommodations great, the food fantastic, especially all the fish we had.</p>
                     </div>
 				</div>  
 				<div class="test-body">
                     <div class="item">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
-                        <div class="name">Name1</div>
-                        <small class="desig">Bangalore</small>
+                        <img src="https://img.etimg.com/thumb/msid-65123124,width-1200,height-900/news/international/world-news/mikhail-gorbachevs-interpreter-on-us-russian-summit.jpg">
+                        <div class="name" style="text-align: center;">Mikhail Boris</div>
+                        <small class="desig">Moscow</small>
                         <div class="share">
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -84,12 +83,12 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star-o" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, vitae? Adipisci possimus ullam esse exercitationem dignissimos aspernatur quo maiores assumenda molestias. Neque reiciendis iusto natus. Quis quia est incidunt enim!</p>
+                        <p>This trip was totally amazing. beautiful scenery, wonderful guides, great food and full of lots off active adventures.</p>
                     </div>
                     <div class="item">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
-                        <div class="name">Name2</div>
-                        <small class="desig">London</small>
+                        <img src="https://media1.popsugar-assets.com/files/thumbor/H55NTt0CjO6zP_EzMgaenh27VKQ/13x215:3516x3718/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/03/03/981/n/1922398/1c6ba0085e5edb2ca06156.71452790_/i/Emily-Blunt.jpg">
+                        <div class="name" style="text-align: center;">Emily Parker</div>
+                        <small class="desig">New York</small>
                         <div class="share">
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -97,12 +96,12 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, vitae? Adipisci possimus ullam esse exercitationem dignissimos aspernatur quo maiores assumenda molestias. Neque reiciendis iusto natus. Quis quia est incidunt enim!</p>
+                        <p>My favourite website for all things travel! The new bucket list is a nice touch.</p>
                     </div>
                     <div class="item">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
-                        <div class="name">Name3</div>
-                        <small class="desig">Tokyo</small>
+                        <img src="https://www.piazzalucana.it/wp-content/uploads/2019/11/roberto-fico.jpg">
+                        <div class="name" style="text-align: center;">Roberto Casellati</div>
+                        <small class="desig">Rome</small>
                         <div class="share">
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -110,14 +109,13 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, vitae? Adipisci possimus ullam esse exercitationem dignissimos aspernatur quo maiores assumenda molestias. Neque reiciendis iusto natus. Quis quia est incidunt enim!</p>
+                        <p>When I started planning my New Zealand adventure vacation, more than anything, I wanted to be sure it included the right mix of activity and relaxation. Surf helped me plan the best places to visit in the limited time i had.</p>
                     </div>
                 </div>  
             </div>
         </section>
 
     </main>
-
    
 
     <?php include("footer.html")?>

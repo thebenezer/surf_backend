@@ -56,6 +56,6 @@ else if (isset($_GET['bucket'])) {
   exit();
   }
 else {
-  header("Location: ../place.php?country=".$pid);
+  header("Location: ../place.php?country=".$pid."");
   exit();
 }

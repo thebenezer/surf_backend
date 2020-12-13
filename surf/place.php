@@ -23,16 +23,16 @@
         include("header.php");
         if (isset($_SESSION['uid']) && isset($_GET['country']))  {
             echo '<form class="add_to_list" action="./includes/addplace.inc.php" method="GET">
-            <button type="submit" name="visited" value='.htmlspecialchars($_GET['country']).'><img src="./assets/images/check.png" alt="up icon"></button>
-            <button type="submit" name="bucket" value='.htmlspecialchars($_GET['country']).'"><img src="./assets/images/heart.png" alt="up icon"></button>
+            <button type="submit" name="visited" value='.htmlspecialchars($_GET['country']).'><img src="./assets/images/check.png" alt="add to visited"></button>
+            <button type="submit" name="bucket" value='.htmlspecialchars($_GET['country']).'"><img src="./assets/images/heart.png" alt="bucket list"></button>
             </form>';
         }
-        else{
-            echo '<form class="add_to_list">
-            <button type="submit" name="visited"><img src="./assets/images/check.png" alt="up icon"></button>
-            <button type="submit" name="bucket"><img src="./assets/images/heart.png" alt="up icon"></button>
-            </form>';
-        }
+        // else{
+        //     echo '<form class="add_to_list" onclick="signinCont()">
+        //     <button name="visited"><img src="./assets/images/check.png" alt="add to visited"></button>
+        //     <button name="bucket"><img src="./assets/images/heart.png" alt="bucket list"></button>
+        //     </form>';
+        // }
     ?>
 
     <!-- ****************** ALL CONTENT HERE ******************* -->
@@ -241,6 +241,9 @@
         // setTimeout(function () { body.classList.add('complete'); }, 2000);
         body.classList.add('complete');
         setTimeout(function () { loadingScreen.classList.add('hide'); }, 2000);
+        function signinCont(){
+
+        }
     </script>
 </body>
 
