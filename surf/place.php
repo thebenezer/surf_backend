@@ -19,6 +19,10 @@
 </head>
 
 <body>
+    <form class="add_to_list">
+        <button type="submit" name="visited"><img src="./assets/images/check.png" alt="up icon"></button>
+        <button type="submit" name="bucket"><img src="./assets/images/heart.png" alt="up icon"></button>
+    </form>
 <?php include("header.php")?>
 
     <!-- ****************** ALL CONTENT HERE ******************* -->

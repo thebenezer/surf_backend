@@ -1,3 +1,32 @@
+.add_to_list{
+  position: fixed;
+  display: flex;
+  left: 3%;
+  bottom: 10%;
+}
+.add_to_list button{
+  cursor: pointer;
+  background-color: rgba(253, 253, 253, 0.781);
+  width: 55px;
+  height: 40px;
+  margin: 0 10px 0 0;
+  margin-top: 10px;
+  border: solid #242423 2px;
+  border-radius: 25px;
+  text-align: center;
+  /* display: none; */
+  /* z-index: -1; */
+  transition: all 0.5s ease;
+  /*To disable text selection on tap or double click*/
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+.add_to_list button img{
+  width: 30px;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -106,4 +135,12 @@ p {
   .blog-item {
     grid-column: auto;
   }
+}
+@media screen and (max-width: 768px) {
+  .add_to_list{
+    flex-direction: column;
+    left: 3%;
+    bottom: 70px;
+  }
+  
 }
