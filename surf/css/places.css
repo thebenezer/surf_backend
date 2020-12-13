@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   left: 3%;
-  bottom: 10%;
+  bottom: 3%;
 }
 .add_to_list button{
   cursor: pointer;
