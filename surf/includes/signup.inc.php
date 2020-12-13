@@ -51,7 +51,7 @@ if (isset($_POST['signup-submit'])) {
       {
         // mysqli_close($conn);
         // mysqli_stmt_close($stmt);
-        $sql="INSERT INTO users (uid,name,email,pwd) values(?,?,?,?);";
+        $sql="INSERT INTO users (uid,email,pwd) values(?,?,?);";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt,$sql))
         {
@@ -61,7 +61,7 @@ if (isset($_POST['signup-submit'])) {
         else
         {
           $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-          mysqli_stmt_bind_param($stmt, "ssss", $uid,$uid,$email,$hashedPwd);
+          mysqli_stmt_bind_param($stmt, "sss", $uid,$email,$hashedPwd);
           mysqli_stmt_execute($stmt);
           mysqli_stmt_close($stmt);
           session_start();
