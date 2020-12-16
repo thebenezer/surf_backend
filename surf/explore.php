@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/search.css">
@@ -25,25 +26,34 @@
 
 
     <main>
-        <section class="earth">
-            <!--**********search bar******8-->
-            <div class="boxcontainer">
-                <table class="elementcontainer">
-                    <tr>
-                        <td>
-                            <input type="text" placeholder="Search" class="search">
-                        </td>
-                        <td>
-                            <a href="#"><i class="material-icons">search</i></a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <a id="pop-info">Place </a>
-            <canvas id="c">
-
-            </canvas>
-            
+        <section class="searching">
+                <a id="pop-info">Place </a>
+                <!-- <div class="boxcontainer">
+                    <table class="elementcontainer">
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Search" class="search">
+                            </td>
+                            <td>
+                                <a href="#"><i class="material-icons">search</i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div> -->
+                <form action="search.inc.php" method="GET" class="search_bar">
+                    <input type="text" placeholder="Beach, wildlife, jungle..." class="search">
+                    <!-- <input list="filters" name="browser" class="search" placeholder="Beach, wildlife, jungle..."> -->
+                    <!-- <datalist id="filters">
+                        <option value="Beach">
+                        <option value="Wildlife">
+                        <option value="Forest">
+                        <option value="Trekking">
+                        <option value="Ice">
+                        <option value="Luxury">
+                    </datalist> -->
+                    <button type="submit" name="search_go"class="go"><img src="./assets/images/search.png" alt="Search"></button>
+                </form>
+                <canvas class="search_earth" id="c"></canvas>
         </section>
 
     </main>
@@ -54,15 +64,15 @@
     <!-- **************** SCRIPTS ***************** -->
    
     <script type="text/javascript" src="./js/getplaces.php"></script>
-    <script src="./js/click.js" type="module"></script>
-    <!-- <script>
+    <!-- <script src="./js/click.js" type="module"></script> -->
+    <script>
         const body = document.querySelector('body');
         const loadingScreen = document.querySelector('.loading-screen');
         // loadingScreen.classList.toggle('complete');
         // setTimeout(function(){ body.classList.add('complete'); }, 2000);
         body.classList.add('complete');
         setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);
-    </script> -->
+    </script>
 </body>
 
 </html>
