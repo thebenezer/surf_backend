@@ -1,6 +1,6 @@
 
-let Places;
-Places ={
+let databasePlaces;
+databasePlaces ={
     <?php
     include ('../includes/dbh.inc.php');
     $sql = "SELECT pid , country , lat , lon , small_pic from destinations ;";

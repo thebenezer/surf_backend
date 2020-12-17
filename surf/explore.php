@@ -40,20 +40,24 @@
                         </tr>
                     </table>
                 </div> -->
-                <form action="search.inc.php" method="GET" class="search_bar">
-                    <input type="text" placeholder="Beach, wildlife, jungle..." class="search">
-                    <!-- <input list="filters" name="browser" class="search" placeholder="Beach, wildlife, jungle..."> -->
-                    <!-- <datalist id="filters">
-                        <option value="Beach">
-                        <option value="Wildlife">
-                        <option value="Forest">
-                        <option value="Trekking">
-                        <option value="Ice">
-                        <option value="Luxury">
-                    </datalist> -->
-                    <button type="submit" name="search_go"class="go"><img src="./assets/images/search.png" alt="Search"></button>
-                </form>
+               
                 <canvas class="search_earth" id="c"></canvas>
+                <div class="searchcont">
+                    <form class="search_bar">
+                        <input type="text" placeholder="Beach, wildlife, jungle..." name="search_query"class="search" autocomplete="off">
+                        <!-- <input list="filters" name="browser" class="search" placeholder="Beach, wildlife, jungle..."> -->
+                        <!-- <datalist id="filters">
+                            <option value="Beach">
+                            <option value="Wildlife">
+                            <option value="Forest">
+                            <option value="Trekking">
+                            <option value="Ice">
+                            <option value="Luxury">
+                        </datalist> -->
+                        <button type="submit" name="search_go"><img src="./assets/images/search.png" alt="Search"></button>
+                        <button type="reset" name="search_go">Clear</button>
+                    </form>
+                </div>
         </section>
 
     </main>
@@ -64,15 +68,16 @@
     <!-- **************** SCRIPTS ***************** -->
    
     <script type="text/javascript" src="./js/getplaces.php"></script>
-    <!-- <script src="./js/click.js" type="module"></script> -->
-    <script>
+    <script src="./js/click.js" type="module"></script>
+    <!-- <script type="text/javascript" src="./js/explore.js" type="module"></script> -->
+    <!-- <script>
         const body = document.querySelector('body');
         const loadingScreen = document.querySelector('.loading-screen');
         // loadingScreen.classList.toggle('complete');
         // setTimeout(function(){ body.classList.add('complete'); }, 2000);
         body.classList.add('complete');
         setTimeout(function(){ loadingScreen.classList.add('hide'); }, 2000);
-    </script>
+    </script> -->
 </body>
 
 </html>

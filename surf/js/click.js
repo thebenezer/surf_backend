@@ -7,7 +7,7 @@ import { OrbitControls } from './three/OrbitControls.js';
 const canvas=document.querySelector('#c');
 const pop_info=document.querySelector('#pop-info');
 
-let renderer,camera,scene,controls,raycaster;
+let renderer,camera,scene,controls,raycaster,Places;
 let mouse = new THREE.Vector2(), INTERSECTED;
 let clickxy = new THREE.Vector2();
 
@@ -35,10 +35,14 @@ function onDocumentTouchEnd( event ) {
 
     event.preventDefault();
     var touches = event.changedTouches;
+    // clickxy.x=touches[0].pageX;
+    // clickxy.y=touches[0].pageY;
+    // mouse.x = ( clickxy.x- renderer.domElement.offsetLeft / canvas.clientWidth ) * 2 - 1;
+    // mouse.y = - ( clickxy.y- renderer.domElement.offsetTop / canvas.clientHeight ) * 2 + 1;
     clickxy.x=touches[0].pageX;
     clickxy.y=touches[0].pageY;
-    mouse.x = ( clickxy.x / canvas.clientWidth ) * 2 - 1;
-    mouse.y = - ( clickxy.y / canvas.clientHeight ) * 2 + 1;
+    mouse.x = ( (clickxy.x- renderer.domElement.offsetLeft) / renderer.domElement.clientWidth  ) * 2 - 1;
+    mouse.y = - ( (clickxy.y- renderer.domElement.offsetTop) / renderer.domElement.clientHeight  ) * 2 + 1;
     // mouse.x = ( touches[0].pageX / window.innerWidth ) * 2 - 1;
     // mouse.y = - ( touches[0].pageY / window.innerHeight ) * 2 + 1;
 }
@@ -118,25 +122,27 @@ function main(){
         }
         addEarth();
        
-        // if(Places.length()===0){
-        // Places={
-        //     "India": [20.6,79],
-        //     "UK": [55.57,-3.43],
-        //     "Spain": [40.46,-3.75],
-        //     "Italy": [41.87, 12.56],
-        //     "Japan": [36.20, 138.25],
-        //     "USA": [37.09, -95.71],
-        //     "Mexico":[23.6345, -102.55],
-        //     "France":[46.22, 2.21],
-        //     "Turkey":[38.96, 35.24],
-        //     "Thailand":[15.87, 101],
-        //     "China":[35.86, 104.19],
-        //     "Germany":[51.16, 10.45],
-        //     "South Africa":[-30.56, 22.93],
-        //     "Brazil":[-14.23, -51.92],
-        //     "New Zeland": [-40.90, 174.88],
-        //     "Indonesia": [-0.79,113.92]};
-        // }
+        if(databasePlaces){
+            Places=databasePlaces;
+        }
+        else{
+        Places={
+            "India": [20.6,79],
+            "UK": [55.57,-3.43],
+            "Spain": [40.46,-3.75],
+            "Italy": [41.87, 12.56],
+            "Japan": [36.20, 138.25],
+            "Mexico":[23.6345, -102.55],
+            "France":[46.22, 2.21],
+            "Turkey":[38.96, 35.24],
+            "Thailand":[15.87, 101],
+            "China":[35.86, 104.19],
+            "Germany":[51.16, 10.45],
+            "South Africa":[-30.56, 22.93],
+            "Brazil":[-14.23, -51.92],
+            "New Zeland": [-40.90, 174.88],
+            "Indonesia": [-0.79,113.92]};
+        }
         
         var placeGeometry = new THREE.CircleBufferGeometry( 2.5, 6 );
         
@@ -188,11 +194,13 @@ function main(){
         // convert the normalized position to CSS coordinates
         // const x = (tempV.x *  .5 + .5) * canvas.clientWidth-renderer.domElement.offsetleft;
         // const y = (tempV.y * -.5 + .5) * canvas.clientHeight-renderer.domElement.offsetTop;
-        const x = clickxy.x;
-        const y = clickxy.y;
+        const x = clickxy.x-80;
+        const y = clickxy.y-80;
        
         // move the elem to that position
-        pop_info.style.transform = `translate(-50%, -50%) translate(${x}px,${y}px)`;
+        // pop_info.style.transform = `translate(-50%,-50%) translate(${x}px,${y}px)`;
+        pop_info.style.left = `${x}px`;
+        pop_info.style.top = `${y}px`;
         // var addr = "./places/"+obj.name.toLowerCase()+".php";
         var addr = "./place.php?country="+Places[obj.name][3];
         pop_info.setAttribute('href',addr);
@@ -297,6 +305,65 @@ else{
 }
 
 
+function clearThree(obj){
+    while(obj.children.length > 0){ 
+      clearThree(obj.children[0])
+      obj.remove(obj.children[0]);
+    }
+    if(obj.geometry) obj.geometry.dispose()
+  
+    if(obj.material){ 
+      //in case of map, bumpMap, normalMap, envMap ...
+      Object.keys(obj.material).forEach(prop => {
+        if(!obj.material[prop])
+          return         
+        if(obj.material[prop] !== null && typeof obj.material[prop].dispose === 'function')                                  
+          obj.material[prop].dispose()                                                        
+      })
+      obj.material.dispose()
+    }
+  }   
+  
+var handleSearch = function(event) {
+    event.preventDefault();
+    // Get the search terms from the input field
+    var searchTerm = event.target.elements['search_query'].value;
+    // Tokenize the search terms and remove empty spaces
+    var tokens = searchTerm
+                    .toLowerCase()
+                    .split(' ')
+                    .filter(function(token){
+                    return token.trim() !== '';
+                    });
+    if(tokens.length) {
+        console.log(tokens);
+    // //  Create a regular expression of all the search terms
+    // var searchTermRegex = new RegExp(tokens.join('|'), 'gim');
+    // var filteredList = books.filter(function(book){
+    //     // Create a string of all object values
+    //     var bookString = '';
+    //     for(var key in book) {
+    //     if(book.hasOwnProperty(key) && book[key] !== '') {
+    //         bookString += book[key].toString().toLowerCase().trim() + ' ';
+    //     }
+    //     }
+    //     // Return book objects where a match with the search regex if found
+    //     return bookString.match(searchTermRegex);
+    // });
+    // // Render the search results
+    // render(filteredList);
+    }
+};
+
+document.addEventListener('submit', handleSearch);
+document.addEventListener('reset', function(event){
+    event.preventDefault();
+    document.querySelector('.search').value = '';
+    // Places.length=0;
+    // Places=allPlaces;
+    clearThree(scene);
+
+})
 
 
         // **********HELPERS********
