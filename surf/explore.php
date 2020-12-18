@@ -55,7 +55,7 @@
                             <option value="Luxury">
                         </datalist> -->
                         <button type="submit" name="search_go"><img src="./assets/images/search.png" alt="Search"></button>
-                        <button type="reset" name="search_go">Clear</button>
+                        <button type="reset" name="reset_go">Clear</button>
                     </form>
                 </div>
         </section>
@@ -68,7 +68,7 @@
     <!-- **************** SCRIPTS ***************** -->
    
     <script type="text/javascript" src="./js/getplaces.php"></script>
-    <script src="./js/click.js" type="module"></script>
+    <script src="./js/click2.js" type="module"></script>
     <!-- <script type="text/javascript" src="./js/explore.js" type="module"></script> -->
     <!-- <script>
         const body = document.querySelector('body');
