@@ -5,9 +5,10 @@ import { OrbitControls } from './three/OrbitControls.js';
 
 
 const canvas=document.querySelector('#c');
+const form=document.querySelector('.search_bar');
 const pop_info=document.querySelector('#pop-info');
 
-let renderer,camera,scene,controls,raycaster,Places;
+let renderer,camera,scene,controls,raycaster,Places,allPlaces;
 let mouse = new THREE.Vector2(), INTERSECTED;
 let clickxy = new THREE.Vector2();
 
@@ -71,6 +72,78 @@ function orbitalcontrols() {
         camera.position.z = 300;
 }
 
+function drawScene(drawPlaceArray) {
+    // Setup scene
+    scene = new THREE.Scene();
+    // Setup camera
+    camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 1, 5000);  
+    // Setup renderer
+    renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true
+    });
+    // container.appendChild( renderer.domElement );
+    orbitalcontrols();
+    // Add fog to the scene
+    scene.fog = new THREE.FogExp2( 0xe8eddf, 0.002 );
+    scene.fog.name="fog";
+    var light = new THREE.DirectionalLight( 0xffffff, 1 );
+    light.position.set( 1, 1, 1 ).normalize();
+    camera.add( light );
+    camera.name="camera";
+    scene.add(camera);
+    scene.name="scene";
+
+    function addEarth() {
+    var spGeo = new THREE.SphereGeometry(100,50,50);
+    var loader=new THREE.TextureLoader();
+    var planetTexture = loader.load( "./assets/additional_scripts/new_world.png" );
+
+
+    [THREE.BackSide, THREE.FrontSide].forEach((side) => {
+        var mat2 =  new THREE.MeshBasicMaterial( {
+            map: planetTexture,
+            alphaTest: 0.7,
+            opacity:1,
+            transparent: true,
+            side,
+            } );
+            var sp = new THREE.Mesh(spGeo,mat2);
+            sp.name="Earth";
+            scene.add(sp);
+        });
+        planetTexture.dispose();
+    }
+    addEarth();   
+
+    var placeGeometry = new THREE.CircleBufferGeometry( 2.5, 6 );
+        
+    for (const key in drawPlaceArray) {
+        if (drawPlaceArray.hasOwnProperty(key)) {
+            var placeMaterial=new THREE.MeshPhongMaterial( {
+                color: 0x000000,
+                side: THREE.BackSide, 
+            });
+            const placeObject = new THREE.Mesh( placeGeometry, placeMaterial);
+            const Place = drawPlaceArray[key];
+
+            var latitude=Place[0],longitude=Place[1];
+            var phi = Math.PI/2-THREE.MathUtils.degToRad(latitude);
+            var theta =THREE.MathUtils.degToRad(-longitude)+0;
+    
+            placeObject.name=key;
+            // placeObject.rotation.y=Math.PI/6;
+            placeObject.position.x = 101 * Math.sin(phi) * Math.cos(theta);
+            placeObject.position.y = 101 * Math.cos(phi);
+            placeObject.position.z = 101 * Math.sin(phi) * Math.sin(theta);
+            placeObject.lookAt(0,0,0);
+            scene.add( placeObject );
+                                    
+            
+        }
+    }
+}
+
 function main(){
     // window
     //     .fetch("./js/points.json")
@@ -81,59 +154,19 @@ function main(){
     init()
 
     function init() {
-        // Setup scene
-        scene = new THREE.Scene();
-        // Setup camera
-        camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 1, 5000);  
-        // Setup renderer
-        renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: true
-        });
-        // container.appendChild( renderer.domElement );
-        orbitalcontrols();
-        // Add fog to the scene
-        scene.fog = new THREE.FogExp2( 0xe8eddf, 0.002 );
-    
-        var light = new THREE.DirectionalLight( 0xffffff, 1 );
-        light.position.set( 1, 1, 1 ).normalize();
-        camera.add( light );
-        scene.add(camera);
-
-        function addEarth() {
-        var spGeo = new THREE.SphereGeometry(100,50,50);
-        var loader=new THREE.TextureLoader();
-        var planetTexture = loader.load( "./assets/additional_scripts/new_world.png",render );
-
-
-        [THREE.BackSide, THREE.FrontSide].forEach((side) => {
-            var mat2 =  new THREE.MeshBasicMaterial( {
-                map: planetTexture,
-                alphaTest: 0.7,
-                opacity:1,
-                transparent: true,
-                side,
-                } );
-                var sp = new THREE.Mesh(spGeo,mat2);
-                sp.name="Earth";
-                scene.add(sp);
-            });
-            planetTexture.dispose();
-        }
-        addEarth();
        
         if(databasePlaces){
-            Places=databasePlaces;
+            allPlaces=Places=databasePlaces;
+            
         }
         else{
-        Places={
+        allPlaces=Places={
             "Australia": [-25.27,133.77,"australia_small.jpg"],
             "India": [20.6,79,"india_small.jpg"],
             "UK": [55.57,-3.43,"uk_small.jpg"],
             "Spain": [40.46,-3.75,"spain_small.jpg"],
             "Italy": [41.87, 12.56,"italy_small.jpg"],
             "Japan": [36.20, 138.25,"japan_small.jpg"],
-            "USA": [37.09, -95.71,"usa_small.jpg"],
             "Mexico":[23.6345, -102.55,"mexico_small.jpg"],
             "France":[46.22, 2.21,"france_small.jpg"],
             "Turkey":[38.96, 35.24,"turkey_small.jpg"],
@@ -145,33 +178,9 @@ function main(){
             "New Zeland": [-40.90, 174.88,"newzeland_small.jpg"],
             "Indonesia": [-0.79,113.92,"indonesia_small.jpg"]};
         }
+        drawScene(Places);
         
-        var placeGeometry = new THREE.CircleBufferGeometry( 2.5, 6 );
-        
-        for (const key in Places) {
-            if (Places.hasOwnProperty(key)) {
-                var placeMaterial=new THREE.MeshPhongMaterial( {
-                    color: 0x000000,
-                    side: THREE.BackSide, 
-                });
-                const placeObject = new THREE.Mesh( placeGeometry, placeMaterial);
-                const Place = Places[key];
-
-                var latitude=Place[0],longitude=Place[1];
-                var phi = Math.PI/2-THREE.MathUtils.degToRad(latitude);
-                var theta =THREE.MathUtils.degToRad(-longitude)+0;
-        
-                placeObject.name=key;
-                // placeObject.rotation.y=Math.PI/6;
-                placeObject.position.x = 101 * Math.sin(phi) * Math.cos(theta);
-                placeObject.position.y = 101 * Math.cos(phi);
-                placeObject.position.z = 101 * Math.sin(phi) * Math.sin(theta);
-                placeObject.lookAt(0,0,0);
-                scene.add( placeObject );
-                                        
-                
-            }
-        }
+       
         
         canvas.addEventListener( 'mousemove', onDocumentMouseMove, false );
         canvas.addEventListener( 'touchstart', onDocumentTouchEnd, false );
@@ -309,26 +318,25 @@ else{
 
 function clearThree(obj){
     while(obj.children.length > 0){ 
-      clearThree(obj.children[0])
-      obj.remove(obj.children[0]);
-    }
-
-    if(obj.children.length > 0){ 
-        clearThree(obj.children[0])
-        obj.remove(obj.children[0]);
+        const child=obj.children[0];
+        // if(child && child.name !== undefined && child.name !== "Earth"){
+        console.log(child.name);
+        clearThree(child)
+        obj.remove(child);
+        // }
     }
     if(obj.geometry) obj.geometry.dispose()
   
-    if(obj.material){ 
-        //in case of map, bumpMap, normalMap, envMap ...
-        Object.keys(obj.material).forEach(prop => {
-        if(!obj.material[prop])
-          return         
-        if(obj.material[prop] !== null && typeof obj.material[prop].dispose === 'function')                                  
-          obj.material[prop].dispose()                                                        
-        })
-        obj.material.dispose()
-    }
+    // if(obj.material){ 
+    //     //in case of map, bumpMap, normalMap, envMap ...
+    //     Object.keys(obj.material).forEach(prop => {
+    //     if(!obj.material[prop])
+    //       return         
+    //     if(obj.material[prop] !== null && typeof obj.material[prop].dispose === 'function')                                  
+    //       obj.material[prop].dispose()                                                        
+    //     })
+    //     obj.material.dispose()
+    // }
 }   
   
 var handleSearch = function(event) {
@@ -338,36 +346,33 @@ var handleSearch = function(event) {
     // Tokenize the search terms and remove empty spaces
     var tokens = searchTerm
                     .toLowerCase()
-                    .split(' ')
+                    .split(/[ ,]+/)
                     .filter(function(token){
                     return token.trim() !== '';
                     });
+    
+                    // (/[ ,]+/).filter(Boolean)
+    var tempPlaces=[];
     if(tokens.length) {
-        console.log(tokens);
-    // //  Create a regular expression of all the search terms
-    // var searchTermRegex = new RegExp(tokens.join('|'), 'gim');
-    // var filteredList = books.filter(function(book){
-    //     // Create a string of all object values
-    //     var bookString = '';
-    //     for(var key in book) {
-    //     if(book.hasOwnProperty(key) && book[key] !== '') {
-    //         bookString += book[key].toString().toLowerCase().trim() + ' ';
-    //     }
-    //     }
-    //     // Return book objects where a match with the search regex if found
-    //     return bookString.match(searchTermRegex);
-    // });
-    // // Render the search results
-    // render(filteredList);
+        tokens.forEach(token => {
+            for (const key in Places) {
+                if (Places[key][4].includes(token)) {
+                    tempPlaces[key]=Places[key];
+                    console.log(Places[key]);
+                }
+            }
+        });
+        clearThree(scene);
+        drawScene(tempPlaces);
     }
 };
-
-document.addEventListener('submit', handleSearch);
+form.addEventListener('submit', handleSearch);
 document.addEventListener('reset', function(event){
     event.preventDefault();
     document.querySelector('.search').value = '';
-    // Places.length=0;
-    // Places=allPlaces;
+    Places=[];
+    Places=allPlaces;
     clearThree(scene);
-
+    // const placenew=;
+    drawScene(allPlaces);
 })

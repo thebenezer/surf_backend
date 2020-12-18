@@ -68,7 +68,7 @@
     <!-- **************** SCRIPTS ***************** -->
    
     <script type="text/javascript" src="./js/getplaces.php"></script>
-    <script src="./js/click2.js" type="module"></script>
+    <script src="./js/click.js" type="module"></script>
     <!-- <script type="text/javascript" src="./js/explore.js" type="module"></script> -->
     <!-- <script>
         const body = document.querySelector('body');
