@@ -33,3 +33,19 @@ function closeForm() {
     loginForm.style.display = "none";
     signupForm.style.display = "none";
 }
+
+
+// ****************FOR TOGGLE ON PROFILE PAGE**************************
+
+const travelled = document.querySelector('.travelled');
+const bucketlist = document.querySelector('.bucketlist');
+
+function toggleList(){
+    if (travelled.style.display!='none') {
+        travelled.style.display='none';   
+        bucketlist.style.display='flex';   
+    } else {
+        travelled.style.display='flex';   
+        bucketlist.style.display='none';
+    }
+}

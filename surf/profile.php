@@ -50,14 +50,12 @@
                     $age=$row['age'];
                     $profilepic=$row['profilepic'];
                     $about=$row['about'];
-                    // $desc_arr = preg_split("/\^/", $desc);
-                    // $pic_arr = preg_split("/\^/", $pictures); 
                 }
                 mysqli_stmt_close($stmt);
             }
 
             // ************************GET TRAVELLED INFO*********************
-            $sql = "SELECT pid from travelled where uid= ?;";
+            $sql = "SELECT pid,trip_date from travelled where uid= ?;";
             $stmt= mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 $num_trav="-";
@@ -70,7 +68,7 @@
                 $travelled=[];
                 if($result->num_rows != 0){
                     while($row = $result->fetch_assoc()){
-                        $travelled[]=$row['pid'];
+                        $travelled[]=$row;
                         // array_push($travelled,$row['pid']);
                         $num_trav+=1;
                     }
@@ -79,7 +77,7 @@
             }
 
             // ************************GET BUCKET LIST INFO*********************
-            $sql = "SELECT pid from bucket_list where uid= ?;";
+            $sql = "SELECT pid,dream_date from bucket_list where uid= ?;";
             $stmt= mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 $num_bucket="-";
@@ -93,7 +91,7 @@
                 if($result->num_rows != 0){
                     while($row = $result->fetch_assoc()){
                         $num_bucket+=1;
-                        $bucketlist[]=$row['pid'];
+                        $bucketlist[]=$row;
                         // array_push($bucketlist, $row['pid']);
                     }
                 }
@@ -164,61 +162,89 @@
                     </div>
                 </div>
             </article>
-            <div class="flipbox">
+            <div class="flipbox" >
                 <h3 class="fliptext">Travelled</h3>
-                <input type="checkbox" class="flip_list" id="flip">
+                <input type="checkbox" class="flip_list" id="flip" onclick="toggleList()">
                 <h3 class="fliptext">Wishlist</h3>
                 <h2 class="mobile_fliptext"></h2>
             </div>
-            <?php
-            
-            // ************************BUCKET PLACE DETAILS*********************
-            foreach($bucketlist as $bplace){
-                // echo '<p>'.$bprint.'</p>';
-                $sql = "SELECT country,description,small_pic from destinations where pid=?;";
-                $stmt= mysqli_stmt_init($conn);
-                if(!mysqli_stmt_prepare($stmt,$sql)){
-                    $bucketPlaces="-";
-                }
-                else {
-                    mysqli_stmt_bind_param($stmt, "s", $bplace);
-                    mysqli_stmt_execute($stmt);
-                    $result = $stmt->get_result();
-                    if($result->num_rows != 0){
-                        $row = $result->fetch_assoc();
-                        echo $row['country'];
+            <div class="mixed_grid travelled"> 
+                <?php
+                // ************************TRAVELLED PLACE DETAILS*********************
+                foreach($travelled as $tplace){
+                    // echo '<p>'.$bprint.'</p>';
+                    $sql = "SELECT country,description,small_pic from destinations where pid=?;";
+                    $stmt= mysqli_stmt_init($conn);
+                    if(!mysqli_stmt_prepare($stmt,$sql)){
+                        $bucketPlaces="-";
                     }
-                    mysqli_stmt_close($stmt);
-                }
-            }
+                    else {
+                        mysqli_stmt_bind_param($stmt, "s", $tplace['pid']);
+                        mysqli_stmt_execute($stmt);
+                        $result = $stmt->get_result();
+                        // $pic_arr = preg_split("/\^/", $pictures); 
 
-            // ************************TRAVELLED PLACE DETAILS*********************
-            foreach($travelled as $tplace){
-                // echo '<p>'.$bprint.'</p>';
-                $sql = "SELECT country,description,small_pic from destinations where pid=?;";
-                $stmt= mysqli_stmt_init($conn);
-                if(!mysqli_stmt_prepare($stmt,$sql)){
-                    $bucketPlaces="-";
-                }
-                else {
-                    mysqli_stmt_bind_param($stmt, "s", $tplace);
-                    mysqli_stmt_execute($stmt);
-                    $result = $stmt->get_result();
-                    if($result->num_rows != 0){
-                        $row = $result->fetch_assoc();
-                        echo $row['country'];
+                        if($result->num_rows != 0){
+                            $row = $result->fetch_assoc();
+                            echo ' <div class="place_card travelled">
+                                    <div class="pcard">
+                                        <div class="p_left">
+                                            <p class="uid">'.$row["country"].'</p>
+                                            <p class="p_desc">Visited : '.$tplace['trip_date'].'</p>
+                                        </div>
+                                        <div class="p_right" style="background-image: url(./assets/placeimages/'.htmlspecialchars($row['small_pic']).');"></div>
+                                    </div>
+                                </div>';
+                        }
+                        mysqli_stmt_close($stmt);
                     }
-                    mysqli_stmt_close($stmt);
                 }
+                ?>
+                </div>
+                <div class="mixed_grid bucketlist">
+                <?php
+                // ************************BUCKET PLACE DETAILS*********************
+                foreach($bucketlist as $bplace){
+                    // echo '<p>'.$bprint.'</p>';
+                    $sql = "SELECT country,small_pic from destinations where pid=?;";
+                    $stmt= mysqli_stmt_init($conn);
+                    if(!mysqli_stmt_prepare($stmt,$sql)){
+                        $bucketPlaces="-";
+                    }
+                    else {
+                        mysqli_stmt_bind_param($stmt, "s", $bplace['pid']);
+                        mysqli_stmt_execute($stmt);
+                        $result = $stmt->get_result();
+                        if($result->num_rows != 0){
+                            $row = $result->fetch_assoc();
+                            echo ' <div class="place_card bucketlist">
+                                    <div class="pcard">
+                                        <div class="p_left">
+                                            <p class="uid">'.$row["country"].'</p>
+                                            <p class="p_desc">Deadline : '.$bplace['dream_date'].'</p>
+                                        </div>
+                                        <div class="p_right" style="background-image: url(./assets/placeimages/'.htmlspecialchars($row['small_pic']).');"></div>
+                                    </div>
+                                </div>';
+                        }
+                        mysqli_stmt_close($stmt);
+                    }
+                }
+                // **********************CLOSE CONNECTION****************************
+                mysqli_close($conn);
             }
-            // **********************CLOSE CONNECTION****************************
-            mysqli_close($conn);
-        }
-        else{
-            header("Location: ./index.php?error=illegal_access");
-            exit();
-        }
-            ?>
+            else{
+                header("Location: ./index.php?error=illegal_access");
+                exit();
+            }
+                ?>
+                <!-- <img src="./assets/placeimages/indonesia/1.jpg" style="width:100%">
+                <img src="./assets/placeimages/indonesia/2.jpg" style="width:100%">
+                <img src="./assets/placeimages/indonesia/3.jpg" style="width:100%">
+                <img src="./assets/placeimages/indonesia/4.jpg" style="width:100%">
+                <img src="./assets/placeimages/indonesia/5.jpg" style="width:100%"> -->
+            </div>
+
             <div class="trav_grid">
             </div>
             <div class="buck_grid">
