@@ -193,20 +193,20 @@
     justify-content: flex-end;
     padding-right: 20px;
 }
-.actions button img {
+.actions a img {
     margin: 0 20px;
     width: 30px;
     border: none;
 }
 
-.actions button {
+.actions a {
     border: none;
     background: none;
     font-size: 24px;
     cursor: pointer;
     transition:.2s;
 }
-.actions button:hover{
+.actions a:hover{
     opacity: 0.6;
 }
 /* BADGE CARD */

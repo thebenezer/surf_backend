@@ -49,6 +49,7 @@
                     $phno=$row['phno'];
                     $age=$row['age'];
                     $profilepic=$row['profilepic'];
+                    $backpic=$row['backpic'];
                     $about=$row['about'];
                 }
                 mysqli_stmt_close($stmt);
@@ -126,14 +127,14 @@
             <article class="profile">
                 <div class="card">
                     <!-- <img class="profile_pic" src="https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg" alt=""> -->
-                    <div class="profile_pic" style="background-image: url('./assets/images/greenery.jpg');"></div>
+                    <div class="profile_pic" style="background-image: url('./assets/profile_pics/<?php echo $backpic;?>');"></div>
                     <img class="globe_link" src="./assets/profile_pics/<?php echo $profilepic;?>">
                     <div class="card_info">
                         <div class="uid"><?php echo $uid;?></div>
                         <h2 class="name"><?php echo $name;?></h2>
                         <div class="desc"><?php echo $about;?></div>
                         <div class="actions">
-                            <button><img src="./assets/images/edit.svg" alt=""></button>
+                            <a href="editprofile.php"><img src="./assets/images/edit.svg" alt=""></a>
                             <!-- <button><img src="./assets/images/friends.svg" alt=""></button> -->
                             <!-- <button><img src="./assets/images/paper-plane.svg" alt=""></button> -->
                         </div>
@@ -157,7 +158,7 @@
                             </div>
                         </div>
                         <div class="actions">
-                            <button><img src="./assets/images/paper-plane.svg" alt=""></button>
+                            <a><img src="./assets/images/paper-plane.svg" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -187,13 +188,13 @@
                         if($result->num_rows != 0){
                             $row = $result->fetch_assoc();
                             echo ' <div class="place_card travelled">
-                                    <div class="pcard">
+                                    <a src="./place.php?country='.$tplace['pid'].'" class="pcard">
                                         <div class="p_left">
                                             <p class="uid">'.$row["country"].'</p>
                                             <p class="p_desc">Visited : '.$tplace['trip_date'].'</p>
                                         </div>
                                         <div class="p_right" style="background-image: url(./assets/placeimages/'.htmlspecialchars($row['small_pic']).');"></div>
-                                    </div>
+                                    </a>
                                 </div>';
                         }
                         mysqli_stmt_close($stmt);

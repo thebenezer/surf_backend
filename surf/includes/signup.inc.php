@@ -9,21 +9,6 @@ if (isset($_POST['signup-submit'])) {
   $password = $_POST['pwd'];
   $confirmpwd = $_POST['conf_pwd'];
 
-  // if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z1-9]*$/",$uid))
-  // {
-  //   header("Location: ../signup.php?error=invalidusernameandmail");
-  //   exit();
-  // }
-  // else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-  // {
-  //   header("Location: ../signup.php?error=invalidmail&uid=".$uid);
-  //   exit();
-  // }
-  // else if (!preg_match("/^[a-zA-Z1-9]*$/",$uid))
-  // {
-  //   header("Location: ../signup.php?error=invalidusername&mail=".$email);
-  //   exit();
-  // }
   if($password!=$confirmpwd)
   {
     header("Location: ../index.php?error=mismatchedpwd&uid=".$uid."&mail=".$email);
