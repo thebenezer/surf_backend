@@ -188,7 +188,7 @@
                         if($result->num_rows != 0){
                             $row = $result->fetch_assoc();
                             echo ' <div class="place_card travelled">
-                                    <a src="./place.php?country='.$tplace['pid'].'" class="pcard">
+                                    <a href="./place.php?country='.$tplace['pid'].'" class="pcard">
                                         <div class="p_left">
                                             <p class="uid">'.$row["country"].'</p>
                                             <p class="p_desc">Visited : '.$tplace['trip_date'].'</p>
@@ -219,13 +219,13 @@
                         if($result->num_rows != 0){
                             $row = $result->fetch_assoc();
                             echo ' <div class="place_card bucketlist">
-                                    <div class="pcard">
+                                    <a href="./place.php?country='.$tplace['pid'].'" class="pcard">
                                         <div class="p_left">
                                             <p class="uid">'.$row["country"].'</p>
                                             <p class="p_desc">Deadline : '.$bplace['dream_date'].'</p>
                                         </div>
                                         <div class="p_right" style="background-image: url(./assets/placeimages/'.htmlspecialchars($row['small_pic']).');"></div>
-                                    </div>
+                                    </a>
                                 </div>';
                         }
                         mysqli_stmt_close($stmt);
@@ -246,10 +246,6 @@
                 <img src="./assets/placeimages/indonesia/5.jpg" style="width:100%"> -->
             </div>
 
-            <div class="trav_grid">
-            </div>
-            <div class="buck_grid">
-            </div>
         </section>
     </main>
    

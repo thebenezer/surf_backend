@@ -51,6 +51,7 @@ if (isset($_SESSION['uid'])) {
             $phno=$row['phno'];
             $age=$row['age'];
             $profilepic=$row['profilepic'];
+            $backpic=$row['backpic'];
             $about=$row['about'];
         }
         mysqli_stmt_close($stmt);
@@ -90,7 +91,7 @@ else{
                     </label>
                     <label>
                         <div class="about-text">About</div>
-                        <textarea class="editabout" name="about"placeholder="<?php echo $about;?>" value="<?php echo $about;?>"></textarea>
+                        <textarea class="editabout" name="about"placeholder="<?php echo $about;?>"><?php echo $about;?></textarea>
                     </label>
                     <label for="profile_pic"><b>Upload Profile Picture</b></label>
                     <input type="file" name="profile_pic">
@@ -113,7 +114,7 @@ else{
                         <h2 class="name"><?php echo $name;?></h2>
                         <div class="desc"><?php echo $about;?></div>
                         <div class="actions">
-                            <a href="editprofile.php"><img src="./assets/images/view.png" alt=""></a>
+                            <a href="profile.php"><img src="./assets/images/view.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -130,8 +131,6 @@ else{
 
     <!-- **************** SCRIPTS ***************** -->
     
-    <script src="./js/forms.js"></script>
-    <!-- <script src="/js/3dmodel.js" type="module"></script> -->
     <script>
         const body = document.querySelector('body');
         const loadingScreen = document.querySelector('.loading-screen');
