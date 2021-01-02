@@ -44,13 +44,7 @@
                         }
                         else{
                             while($row = $result->fetch_assoc()) {
-                                echo '
-                                <img src="./assets/placeimages/indonesia/1.jpg" style="width:100%">
-                            <img src="./assets/placeimages/indonesia/2.jpg" style="width:100%">
-                            <img src="./assets/placeimages/indonesia/3.jpg" style="width:100%">
-                            <img src="./assets/placeimages/indonesia/4.jpg" style="width:100%">
-                            <img src="./assets/placeimages/indonesia/5.jpg" style="width:100%">
-                                <a href="./place.php?country='.$row['pid'].'"><img src="./assets/placeimages/'.htmlspecialchars($row['small_pic']).'" style="width:100%"></a>';
+                                echo '<a href="./place.php?country='.$row['pid'].'"><img src="./assets/placeimages/'.htmlspecialchars($row['small_pic']).'" style="width:100%"></a>';
                             }
                         }
                         mysqli_stmt_close($stmt);

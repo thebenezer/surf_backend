@@ -18,12 +18,16 @@ if (isset($_POST['login-submit'])) {
        mysqli_stmt_bind_param($stmt, "ss", $mailuid, $mailuid);
        mysqli_stmt_execute($stmt);
        $result = mysqli_stmt_get_result($stmt);
+       if($result->num_rows === 0){
+        header("Location: ../index.php?error=nouser");
+        exit();
+       }
        if ($row = mysqli_fetch_assoc($result))
        {
          $pwdcheck= password_verify($password,$row['pwd']);
          if ($pwdcheck==false)
          {
-           header("Location: ../index.php?error=wrongpwd");
+           header("Location: ../index.php?error=wrongpwd&uid=".$mailuid);
            exit();
          }
          elseif($pwdcheck==true)

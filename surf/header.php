@@ -18,7 +18,7 @@
         </div>
             <ul class="navlinks">
                 <li><a href="explore.php">Explore</a></li>
-                <li><a href="feed.php">Feed</a></li>
+                <li><a href="feed.html">Feed</a></li>
             
         
         <?php if (isset($_SESSION['uid'])) { ?>
@@ -43,7 +43,40 @@
      </nav>
 </header>
 
+<?php
+if(isset($_GET['error'])){
+    $error=$_GET['error'];
+    if($error=='wrongpwd'){
+        echo "<script>alert('Incorrect Password');</script>";
+        $uid=$_GET['uid'];
+    }
+    else if($error=='mismatchedpwd'){
+        echo "<script>alert('Passwords do not match.');</script>";
+        $uid=$_GET['uid'];
+        $mail=$_GET['mail'];
+    }
+    else if($error=='uidtaken'){
+        echo "<script>alert('Username already exists');</script>";
+        $mail=$_GET['mail'];
+    }
+    else if($error=='nouser'){
+        echo "<script>alert('Username does not exist');</script>";
+    }
+    else if($error=='sqlerror_1'){
+        echo "<script>alert('Unknown error. Please try again later.');</script>";
+    }
+    else if($error=='sqlerror_2'){
+        echo "<script>alert('Unknown error. Please try again later.');</script>";
+    }
+    else if($error=='sqlerror_3'){
+        echo "<script>alert('Unknown error. Please try again later.');</script>";
+    }
+    else if($error=='unknownerror'){
+        echo "<script>alert('Unknown error. Please try again later.');</script>";
+    }
+}
 
+?>
 
 
 <!-- ****************** LOGIN FORM ******************* -->
