@@ -18,7 +18,7 @@
         </div>
             <ul class="navlinks">
                 <li><a href="explore.php">Explore</a></li>
-                <li><a href="feed.html">Feed</a></li>
+                <li><a href="feed.php">Feed</a></li>
             
         
         <?php if (isset($_SESSION['uid'])) { ?>

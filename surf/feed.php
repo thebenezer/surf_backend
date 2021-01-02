@@ -26,7 +26,7 @@
             <div id="photos">
             <?php
             require './includes/dbh.inc.php';
-            $sql = "SELECT pid,small_pic from destinations;";
+            $sql = "SELECT pid,pictures from destinations;";
                     $stmt= mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt,$sql)){
                         $bucketPlaces="-";
@@ -43,8 +43,26 @@
                             <img src="./assets/placeimages/indonesia/5.jpg" style="width:100%">';
                         }
                         else{
+                            $placeIds=[];
+                            $images=[];
                             while($row = $result->fetch_assoc()) {
-                                echo '<a href="./place.php?country='.$row['pid'].'"><img src="./assets/placeimages/'.htmlspecialchars($row['small_pic']).'" style="width:100%"></a>';
+                                $pid = $row['pid'];
+                                // $country = $row['country'];
+                                $pictures=$row['pictures'];
+                                // splitting description and images
+                                $pic_arr = preg_split("/\^/", $pictures); 
+                                shuffle($pic_arr);
+                                for ($i=0; $i < 5; $i++){
+                                    $image=['pid'=>$pid,'image'=>$pic_arr[$i]];
+                                    array_push($images,($image));
+                                    // array_push($images,$pic_arr[$i]);
+                                    // array_push($placeIds,$pid);
+                                }
+                                // echo '<a href="./place.php?country='.$row['pid'].'"><img src="./assets/placeimages/'.htmlspecialchars($row['small_pic']).'" style="width:100%"></a>';
+                            }
+                            shuffle($images);
+                            for ($i=0; $i < 50; $i++){
+                                echo '<a href="./place.php?country='.$images[$i]['pid'].'"><img src="'.$images[$i]['image'].'" style="width:100%"></a>';
                             }
                         }
                         mysqli_stmt_close($stmt);
