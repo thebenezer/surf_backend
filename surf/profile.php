@@ -222,7 +222,7 @@
                                     <a href="./place.php?country='.$tplace['pid'].'" class="pcard">
                                         <div class="p_left">
                                             <p class="uid">'.$row["country"].'</p>
-                                            <p class="p_desc">Deadline : '.$bplace['dream_date'].'</p>
+                                            <p class="p_desc">Dreamt-on : '.$bplace['dream_date'].'</p>
                                         </div>
                                         <div class="p_right" style="background-image: url(./assets/placeimages/'.htmlspecialchars($row['small_pic']).');"></div>
                                     </a>
@@ -244,9 +244,7 @@
                 <img src="./assets/placeimages/indonesia/3.jpg" style="width:100%">
                 <img src="./assets/placeimages/indonesia/4.jpg" style="width:100%">
                 <img src="./assets/placeimages/indonesia/5.jpg" style="width:100%"> -->
-            </div>
-
-        </section>
+            </div>        </section>
     </main>
    
 
