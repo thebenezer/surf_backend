@@ -32,7 +32,7 @@
                 
                 <div class="test-body">
                     <div class="item">
-                        <img src="https://lh3.googleusercontent.com/proxy/eyNll2m0BwsME4f7ErvVgoflStTUXI9F7_TCRKu1eNzb0Sm1X6Tdc_BUxpZcdYpjPaE5Do-vPM1nR1BiGBe-JoKY3Xell1b_ngD036xk-GMie40HkabUQSAzqCi4lsDK74jRTAMm4C-NdIky1O-wSGia6yfSXSnnrvhhJ6gdJQ">
+                        <img src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/vallabhaneni-vamshi-iein047248-22-01-2018-16-52-59.jpg?1">
                         <div class="name" style="text-align: center;">Vamsi Kumar</div>
                         <small class="desig">Bangalore</small>
                         <div class="share">
