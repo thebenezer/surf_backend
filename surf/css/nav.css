@@ -259,7 +259,7 @@ nav.highlight{
         display: block;
     }
     nav{
-        z-index: 2;
+        z-index: -1;
         padding: 10px 5%;
     }
     .navlinks{
@@ -275,10 +275,8 @@ nav.highlight{
         clip-path: circle(50px at 120% 0%);
         -webkit-clip-path: circle(50px at 120% 0%);
         transition: all 0.5s ease;
-        z-index: -1;
     }
     .navlinks.open{
-        z-index: 2;
         clip-path: circle(1500px at 120% 0%);
         -webkit-clip-path: circle(1500px at 120% 0%);
     }
