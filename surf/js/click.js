@@ -160,23 +160,24 @@ function main(){
             
         }
         else{
-        allPlaces=Places={
-            "Australia": [-25.27,133.77,"australia_small.jpg"],
-            "India": [20.6,79,"india_small.jpg"],
-            "UK": [55.57,-3.43,"uk_small.jpg"],
-            "Spain": [40.46,-3.75,"spain_small.jpg"],
-            "Italy": [41.87, 12.56,"italy_small.jpg"],
-            "Japan": [36.20, 138.25,"japan_small.jpg"],
-            "Mexico":[23.6345, -102.55,"mexico_small.jpg"],
-            "France":[46.22, 2.21,"france_small.jpg"],
-            "Turkey":[38.96, 35.24,"turkey_small.jpg"],
-            "Thailand":[15.87, 101,"thailand_small.jpg"],
-            "China":[35.86, 104.19,"china_small.jpg"],
-            "Germany":[51.16, 10.45,"germany_small.jpg"],
-            "South Africa":[-30.56, 22.93,"sa_small.jpg"],
-            "Brazil":[-14.23, -51.92,"brazil_small.jpg"],
-            "New Zeland": [-40.90, 174.88,"newzeland_small.jpg"],
-            "Indonesia": [-0.79,113.92,"indonesia_small.jpg"]};
+            allPlaces=Places={
+                "Australia": [-25.27,133.77,"australia_small.jpg","australia,opera house,great barrier reef,beach"],
+                "India": [20.6,79,"india_small.jpg","india,jungles,heritage,hillstation,worldwonder,wildlife,,taj mahal,culture,mughals,charminar,golden temple"],
+                "UK": [55.57,-3.43,"uk_small.jpg","uk,united kingdom,castle,london,england,uk"],
+                "Spain": [40.46,-3.75,"spain_small.jpg","spain,,beach,beaches,heritage,museums"],
+                "Italy": [41.87, 12.56,"italy_small.jpg","italy,worldwonder,lakes,heritage,mountains"],
+                "Japan": [36.20, 138.25,"japan_small.jpg","japan,landofrisingsun,tokyo,culture"],
+                "USA": [37.09, -95.71,"usa_small.jpg","usa,united states,america,indians,cheerokee,ny,new york,washington"],
+                "Mexico":[23.6345, -102.55,"mexico_small.jpg","mexico"],
+                "France":[46.22, 2.21,"france_small.jpg","france"],
+                "Turkey":[38.96, 35.24,"turkey_small.jpg","turkey"],
+                "Thailand":[15.87, 101,"thailand_small.jpg","thailand"],
+                "China":[35.86, 104.19,"china_small.jpg","china"],
+                "Germany":[51.16, 10.45,"germany_small.jpg","germany"],
+                "South Africa":[-30.56, 22.93,"sa_small.jpg","sa,south africa,"],
+                "Brazil":[-14.23, -51.92,"brazil_small.jpg","brazil"],
+                "New Zeland": [-40.90, 174.88,"newzeland_small.jpg","nz,new zeland"],
+                "Indonesia": [-0.79,113.92,"indonesia_small.jpg","indonesia,bali,indonesia,bali,beach,prambanan temple,komodo dragon"]};
         }
         drawScene(Places);
         
