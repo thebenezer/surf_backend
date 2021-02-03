@@ -30,7 +30,7 @@
             <div class="clock-airplane"><img src="./assets/images/airplane.svg" alt=""></div>
         </div>
         <section class="container">
-            <article class="article-content">
+            <article class="article-content" style="text-align:left">
                 
                 <br><h3>Here We Go</h3><br>
                 <p>We at Surf know that you care how information about you is used and shared, and we appreciate your trust that we will do so carefully and sensibly.</p>

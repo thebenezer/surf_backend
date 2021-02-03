@@ -142,7 +142,7 @@
                 </div>
                 <div class="badge-card">
                     <div class="badge" >
-                        <img class="badge_pic" src="./assets/badges/<?php echo $badge_pic[$num_badges-1];?>.jpg" alt="">
+                        <img class="badge_pic" src="./assets/badges/fledgling.jpg" alt="">
                         <canvas class="badge_pic" id="c"></canvs>
                     </div>
                     <!-- <div class="globe_link"></div> -->
@@ -219,7 +219,7 @@
                         if($result->num_rows != 0){
                             $row = $result->fetch_assoc();
                             echo ' <div class="place_card bucketlist">
-                                    <a href="./place.php?country='.$tplace['pid'].'" class="pcard">
+                                    <a href="./place.php?country='.$bplace['pid'].'" class="pcard">
                                         <div class="p_left">
                                             <p class="uid">'.$row["country"].'</p>
                                             <p class="p_desc">Dreamt-on : '.$bplace['dream_date'].'</p>

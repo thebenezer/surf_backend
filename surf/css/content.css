@@ -95,6 +95,7 @@
 .about{
     margin: 80px 0 40px 0;
     display: flex;
+    text-align: left;
     justify-content: space-around;
 }
 .about div{
