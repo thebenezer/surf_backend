@@ -19,14 +19,14 @@ function uploadFile($p,$conn,$uid,$file)
             if ($filesize<1000000) {
                 if ($p==1) {
                     $fileNewName=$uid."_prof.".$fileExtReal;
-                    $filedest='/opt/lampp/htdocs/surf_backend/surf/assets/profile_pics/'.$uid."_prof.".$fileExtReal;
+                    $filedest='/opt/lampp/htdocs/pinboARds/assets/profile_pics/'.$uid."_prof.".$fileExtReal;
                     if(move_uploaded_file($filetmpname,$filedest)){
                         $sql = "update user_profile set profilepic = '$fileNewName' where uid='$uid';";
                         $result= mysqli_query($conn,$sql);
                     } 
                 }else {
                     $fileNewName=$uid."_back.".$fileExtReal;
-                    $filedest='/opt/lampp/htdocs/surf_backend/surf/assets/profile_pics/'.$uid."_back.".$fileExtReal;
+                    $filedest='/opt/lampp/htdocs/pinboARds/assets/profile_pics/'.$uid."_back.".$fileExtReal;
                     if(move_uploaded_file($filetmpname,$filedest)){
                         $sql = "update user_profile set backpic = '$fileNewName' where uid='$uid';";
                         $result= mysqli_query($conn,$sql);
@@ -90,7 +90,7 @@ if (isset($_POST['edit-submit'])) {
             header("Location: ../editprofile.php?back_uploadfail");
         }
     }
-    header("Location: ../editprofile.php?success");
+    header("Location: ../profile.php?success");
     mysqli_close($conn);
 
 }
