@@ -92,7 +92,7 @@ if (isset($_POST['edit-submit'])) {
     }
     header("Location: ../editprofile.php?success");
     mysqli_close($conn);
-
+ 
 }
 else {
   header("Location: ../index.php?error=illegal_access");
